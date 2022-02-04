@@ -6,36 +6,24 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" cache="true" prefHeight="558.0" prefWidth="875.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.AuthentificationController">
+<VBox alignment="CENTER" cache="true" prefHeight="349.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.AuthentificationController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" translateX="-290.0" translateY="100.0">
-         <children>
-            <ImageView fitHeight="250.0" fitWidth="262.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../Downloads/702868.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Label contentDisplay="CENTER" style="-fx-background-color: AAAAA;" text="Authentifcation" textAlignment="CENTER" translateX="160.0" translateY="-150.0" underline="true">
+      <Label contentDisplay="CENTER" style="-fx-background-color: AAAAA;" text="Authentifcation" textAlignment="CENTER" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
          <effect>
             <Blend />
          </effect></Label>
-      <TextField fx:id="txtLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="500.0" promptText="Nom d'utilisateur" translateX="160.0" translateY="-110.0">
+      <TextField fx:id="txtLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="500.0" promptText="Nom d'utilisateur">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></TextField>
-      <PasswordField fx:id="txtPASSWORD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" promptText="Mot de passe" translateX="160.0" translateY="-100.0" />
-      <Button graphicTextGap="5.0" onAction="#connexion" text="Connexion" translateX="160.0" translateY="-90.0" />
+      <PasswordField fx:id="txtPASSWORD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" promptText="Mot de passe" />
+      <Button graphicTextGap="5.0" onAction="#connexion" text="Connexion" />
       
    </children>
    <padding>
