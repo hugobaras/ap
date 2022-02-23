@@ -8,7 +8,7 @@
 <VBox alignment="CENTER" prefHeight="740.0" prefWidth="1184.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.SecondaryController">
     <children>
         <Label fx:id="text" text="Secondary View" />
-        
+
         <Button fx:id="SecondaryButton" onAction="#changecolor" text="Switch to Primary View" />
     </children>
     <padding>

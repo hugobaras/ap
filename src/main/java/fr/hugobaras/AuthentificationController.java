@@ -45,9 +45,9 @@ public class AuthentificationController {
                     }
 
                 }
-                
+
             }
-        con.close();
+            con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
