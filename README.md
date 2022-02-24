@@ -16,3 +16,7 @@ Il a donc d'abord crée un lien entre la base de données et le projet java afin
 Ndoumbe a travaillé sur la fiche de remboursement de frais engagés, elle a utilisé Java, JavaFX, la base de donnée crée préalablement et également le dico de donnée réalisé afin de clarifier les données. Elle a d'abord crée un lien entre la base de données et le projet java puis a travaillé majoritairement sur l'aspect graphique de la fiche afin d'avoir une base propre pour pouvoir ensuite relier les champs de texte et les boutons aux champs associés dans la base de données aux actions qu'ils réalisent. 
 
 De la même façon, Hiba a travaillé sur la fiche d'état des frais en utilisant le même procédé que Ndoumbe 
+
+
+## Tableau Kanban
+Nous avons réalisé un tableau Kanban simple composé de quatres parties comprennant: | Tâches | En cours | Test | Terminé |
