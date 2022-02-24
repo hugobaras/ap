@@ -22,3 +22,21 @@ De la même façon, Hiba a travaillé sur la fiche d'état des frais en utilisan
 Nous avons réalisé un tableau Kanban simple composé de quatres parties comprennant: 
 | Tâches | En cours | Test | Terminé |
 |:-------|:---------|:----:|--------:|
+[Tableau Kanban](https://trello.com/invite/b/rVH7JqII/04bb297fe96b548a5946309ef309775c/mod%C3%A8le-kanban)
+
+
+## Conception et développement
+* Java (VSCode)
+* JavaFX (SceneBuilder)
+* Mysql (MySQL Workbench)
+* Gitbush
+* GitHub
+* Excel [- Dico de données FDR -](https://github.com/hugobaras/ap/blob/master/Dico%20de%20données.xlsx)
+* 
+### Difficulté rencontrée
+Hiba et Ndoumbe ont eu des diffuculté avec la prise en main de SceneBuilder, celui-ci ayant une interface peu intuitive. Elles ont réussi à les surmonter à force de recherche par elles-mêmes ainsi que sur internet. 
+Hugo a éprouvé des difficulté au début avec la connexion de la BDD, ce qu'il a reussi à résoudre par la suite. Il a également stagné pendant un moment sur la réalisation du code pour synchroniser les champs texte avec les données entrées, ce qu'il a reussi à faire grâce à des recherches et de l'aide extérieure.
+
+
+## Annexe
+[- MySQL -](https://github.com/hugobaras/ap/blob/master/gsb.sql)
