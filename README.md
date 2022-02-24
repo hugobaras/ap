@@ -19,4 +19,6 @@ De la même façon, Hiba a travaillé sur la fiche d'état des frais en utilisan
 
 
 ## Tableau Kanban
-Nous avons réalisé un tableau Kanban simple composé de quatres parties comprennant: | Tâches | En cours | Test | Terminé |
+Nous avons réalisé un tableau Kanban simple composé de quatres parties comprennant: 
+| Tâches | En cours | Test | Terminé |
+|:-------|:---------|:----:|--------:|
