@@ -37,8 +37,8 @@ public class AuthentificationController {
                 int id = resultat.getInt("ta_fk");
 
                 if (login.equals(resultat.getString("ag_login")) && pass.equals(resultat.getString("ag_password"))) {
-                    if (id == 1) {
-                        App.setRoot("secondary");
+                    if (id < 2) {
+                        App.setRoot("visiteur");
                     } else {
                         App.setRoot("comptable");
 

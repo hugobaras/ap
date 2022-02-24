@@ -8,11 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d2d2d2d2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.ComptableController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: d2d2d2d2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.Comptable2Controller">
    <children>
-      <AnchorPane layoutX="246.0" layoutY="11.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: b8b8b8b8;" />
-      <Button layoutX="8.0" layoutY="146.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: fbfcfcfc;" text="Vérifier une fiche" textFill="WHITE" />
-      <Button layoutX="8.0" layoutY="220.0" mnemonicParsing="false" onAction="#consulter" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Consulter une fiche" textFill="WHITE" />
+      <AnchorPane layoutX="246.0" layoutY="11.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: b8b8b8b8;">
+         <children>
+            <Text layoutX="349.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="consult" />
+         </children></AnchorPane>
+      <Button layoutX="8.0" layoutY="146.0" mnemonicParsing="false" onAction="#verifier" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: fbfcfcfc;" text="Vérifier une fiche" textFill="WHITE" />
+      <Button layoutX="8.0" layoutY="220.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Consulter une fiche" textFill="WHITE" />
       <Line endX="-100.0" endY="674.5" layoutX="343.0" layoutY="19.0" startX="-100.0" startY="-14.0" stroke="#fbfcfc" strokeWidth="3.0" />
       <Button layoutX="8.0" layoutY="294.0" mnemonicParsing="false" onAction="#deconnect" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Déconnexion" textFill="WHITE" />
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="126.0" prefWidth="220.0">

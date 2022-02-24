@@ -34,11 +34,7 @@
             </Text>
             <Pane layoutX="2.0" prefHeight="67.0" prefWidth="88.0">
                <children>
-                  <ImageView fitHeight="78.0" fitWidth="104.0" layoutY="-17.0">
-                     <image>
-                        <Image url="@../../../../../../../../../Downloads/images%20(1).png" />
-                     </image>
-                  </ImageView>
+                 
                </children>
             </Pane>
          </children>
