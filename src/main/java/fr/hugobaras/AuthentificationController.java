@@ -18,13 +18,13 @@ public class AuthentificationController {
 
     @FXML
     private TextField txtPASSWORD;
-
+        
     @FXML
-    void connexion(ActionEvent event) throws IOException {
-
+    public void connexion(ActionEvent event) throws IOException {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
+        
         try {
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
@@ -35,14 +35,13 @@ public class AuthentificationController {
                 String login = txtLogin.getText();
                 String pass = new String(txtPASSWORD.getText());
                 int id = resultat.getInt("ta_fk");
-
                 if (login.equals(resultat.getString("ag_login")) && pass.equals(resultat.getString("ag_password"))) {
                     if (id < 2) {
                         App.setRoot("visiteur");
                     } else {
                         App.setRoot("comptable");
-
                     }
+                    
 
                 }
 
