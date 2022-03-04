@@ -18,13 +18,13 @@ public class AuthentificationController {
 
     @FXML
     private TextField txtPASSWORD;
-        
+
     @FXML
     public void connexion(ActionEvent event) throws IOException {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
-        
+
         try {
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
@@ -41,7 +41,6 @@ public class AuthentificationController {
                     } else {
                         App.setRoot("comptable");
                     }
-                    
 
                 }
 
