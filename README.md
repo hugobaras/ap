@@ -47,4 +47,10 @@ Hugo a éprouvé des difficulté au début avec la connexion de la BDD, ce qu'il
 ## Bilan
 Après avoir eu du mal à démarrer, dû aux lacunes de chacun, nous avons réussi à trouver notre rythme qui nous permettra d'aller au bout du projet. La prise en main des logiciels a été bien prise par tous. 
 
-# Compte-renduu
+# Compte-rendu
+
+## Répartition des tâches:
+Hiba et Ndoumbe ont terminé la fiche de remboursement de frais engagées et la fiche d'état des frais.
+
+Hugo, sur la page [- Visiteur -](https://github.com/hugobaras/ap/blob/master/visiteur.png), a réalisé le processus permettant de calculer le total des frais forfaitaires en récuprant le montant unitaire dans une base de donnée. Il a également intégré le nom du visiteur afin d'être sur qu'il soit connecté sur le bon compte. 
+Il avance maintenant sur la base de données afin de créer une table "fiche" qui contiendra les données entrées dans les champs de frais forfaitaires afin que pouvoir les afficher lorsque le comptable sélectionnera un visiteur. 
