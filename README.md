@@ -54,3 +54,6 @@ Hiba et Ndoumbe ont terminé la fiche de remboursement de frais engagées et la 
 
 Hugo, sur la page [- Visiteur -](https://github.com/hugobaras/ap/blob/master/visiteur.png), a réalisé le processus permettant de calculer le total des frais forfaitaires en récuprant le montant unitaire dans une base de donnée. Il a également intégré le nom du visiteur afin d'être sur qu'il soit connecté sur le bon compte. 
 Il avance maintenant sur la base de données afin de créer une table "fiche" qui contiendra les données entrées dans les champs de frais forfaitaires afin que pouvoir les afficher lorsque le comptable sélectionnera un visiteur. 
+
+## Difficultés rencontrées
+Un manque de communication s'est vite fait ressentir ce qui nous a empêché d'avancer efficacement. On essaie donc maintenant de discuter avant et pendant la réalisation d'une tâche afin de ne pas empiéter sur le travail de nos camarades.  
