@@ -46,3 +46,5 @@ Hugo a éprouvé des difficulté au début avec la connexion de la BDD, ce qu'il
 
 ## Bilan
 Après avoir eu du mal à démarrer, dû aux lacunes de chacun, nous avons réussi à trouver notre rythme qui nous permettra d'aller au bout du projet. La prise en main des logiciels a été bien prise par tous. 
+
+# Compte-renduu
