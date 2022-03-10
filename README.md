@@ -1,4 +1,4 @@
-# Compte-rendu
+# Compte-rendu #1
 
 
 ## Base de donnée
@@ -47,7 +47,7 @@ Hugo a éprouvé des difficulté au début avec la connexion de la BDD, ce qu'il
 ## Bilan
 Après avoir eu du mal à démarrer, dû aux lacunes de chacun, nous avons réussi à trouver notre rythme qui nous permettra d'aller au bout du projet. La prise en main des logiciels a été bien prise par tous. 
 
-# Compte-rendu
+# Compte-rendu #2
 
 ## Répartition des tâches:
 Hiba et Ndoumbe ont terminé la fiche de remboursement de frais engagées et la fiche d'état des frais.
