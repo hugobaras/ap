@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #a8a8a8a8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.VisiteurController">
    <children>
-      <AnchorPane layoutX="245.0" layoutY="9.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: a8a8a8a8;">
+      <AnchorPane layoutX="244.0" layoutY="9.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: a8a8a8a8;">
          <children>
             <Text fill="#fbfcfc" layoutX="172.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FICHE DE REMBOURSEMENT DE FRAIS ENGAGES">
                <font>
@@ -73,7 +73,7 @@
             <TextField fx:id="txt_Qu_Nuitee" alignment="CENTER" layoutX="254.0" layoutY="200.0" onKeyPressed="#txt_Qu_Nuitee" prefHeight="8.0" prefWidth="121.0" style="-fx-background-color: b8b8b8b8;" />
             <TextField fx:id="txt_Repas" alignment="CENTER" layoutX="254.0" layoutY="226.0" onKeyPressed="#txt_Repas" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: b8b8b8b8;" />
             <TextField fx:id="txt_km" alignment="CENTER" layoutX="254.0" layoutY="251.0" onKeyPressed="#txt_KM" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: b8b8b8b8;" />
-            <Button layoutX="627.0" layoutY="551.0" mnemonicParsing="false" style="-fx-background-color: b8b8b8b8;" text="Soumettre" />
+            <Button layoutX="627.0" layoutY="551.0" mnemonicParsing="false" onAction="#soumettre" style="-fx-background-color: b8b8b8b8;" text="Soumettre" textFill="WHITE" />
             <Text fill="#fbfcfc" layoutX="342.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autres frais">
                <font>
                   <Font name="Century Gothic" size="14.0" />
@@ -115,22 +115,22 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Text>
-            <TextField layoutX="84.0" layoutY="386.0" prefHeight="26.0" prefWidth="164.0" />
-            <TextField layoutX="84.0" layoutY="414.0" prefHeight="26.0" prefWidth="164.0" />
-            <TextField layoutX="85.0" layoutY="439.0" prefHeight="26.0" prefWidth="164.0" />
-            <TextField layoutX="249.0" layoutY="386.0" prefHeight="26.0" prefWidth="272.0" />
-            <TextField layoutX="249.0" layoutY="416.0" prefHeight="26.0" prefWidth="272.0" />
-            <TextField layoutX="249.0" layoutY="439.0" prefHeight="26.0" prefWidth="272.0" />
-            <TextField layoutX="522.0" layoutY="386.0" prefHeight="26.0" prefWidth="151.0" />
-            <TextField layoutX="523.0" layoutY="413.0" prefHeight="26.0" prefWidth="151.0" />
-            <TextField layoutX="523.0" layoutY="440.0" prefHeight="26.0" prefWidth="151.0" />
-            <TextField fx:id="txt_nom" layoutX="593.0" layoutY="6.0" />
+            <TextField layoutX="84.0" layoutY="386.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="84.0" layoutY="414.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="84.0" layoutY="440.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="249.0" layoutY="386.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="249.0" layoutY="413.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="249.0" layoutY="440.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="522.0" layoutY="386.0" prefHeight="15.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="523.0" layoutY="413.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField layoutX="523.0" layoutY="440.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
             <Label fx:id="txt_mu_Repas" alignment="CENTER" layoutX="378.0" layoutY="229.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
             <Label fx:id="txt_mu_km" alignment="CENTER" layoutX="378.0" layoutY="254.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
             <Label fx:id="total_nuitee" alignment="CENTER" layoutX="568.0" layoutY="203.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
             <Label fx:id="total_Repas" alignment="CENTER" layoutX="568.0" layoutY="229.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
             <Label fx:id="total_km" alignment="CENTER" layoutX="568.0" layoutY="254.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
             <Label fx:id="txt_mu_nuit" alignment="CENTER" layoutX="378.0" layoutY="203.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
+            <Label fx:id="txt_nom" alignment="CENTER" layoutX="580.0" layoutY="7.0" prefHeight="30.0" prefWidth="158.0" textFill="WHITE" />
          </children></AnchorPane>
       <Button layoutX="8.0" layoutY="146.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: fbfcfcfc;" text="Renseigner une fiche" textFill="WHITE" />
       <Button layoutX="8.0" layoutY="220.0" mnemonicParsing="false" onAction="#consulter" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Consulter une fiche" textFill="WHITE" />
@@ -138,7 +138,7 @@
       <Button layoutX="8.0" layoutY="293.0" mnemonicParsing="false" onAction="#deconnect" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Déconnexion" textFill="WHITE" />
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="126.0" prefWidth="220.0">
          <children>
-            <Text fill="#fbfcfc" layoutX="73.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory">
+            <Text fill="#fbfcfc" layoutX="47.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory">
                <font>
                   <Font name="Century Gothic Bold" size="24.0" />
                </font>

@@ -28,14 +28,20 @@ public class AuthentificationController {
         try {
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
-            ResultSet resultat = instruction.executeQuery("SELECT * FROM agents");
+            ResultSet resultat = instruction
+                    .executeQuery("SELECT ag_login, ag_nom, ag_prenom, ta_fk, ag_password FROM agents");
 
             while (resultat.next()) {
 
                 String login = txtLogin.getText();
                 String pass = new String(txtPASSWORD.getText());
                 int id = resultat.getInt("ta_fk");
+                String nom = resultat.getString("ag_nom");
+                String prenom = resultat.getString("ag_prenom");
+
                 if (login.equals(resultat.getString("ag_login")) && pass.equals(resultat.getString("ag_password"))) {
+                    Common.nom = nom;
+                    Common.prenom = prenom;
                     if (id < 2) {
                         App.setRoot("visiteur");
                     } else {

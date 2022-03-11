@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +43,7 @@ public class VisiteurController {
     private Label total_km;
 
     @FXML
-    private TextField txt_nom;
+    private Label txt_nom;
 
     @FXML
     void deconnect(ActionEvent event) throws IOException {
@@ -54,6 +56,8 @@ public class VisiteurController {
     }
 
     public void initialize() {
+        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
@@ -98,7 +102,7 @@ public class VisiteurController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
+        txt_nom.setText(Common.nom + " " + Common.prenom);
     }
 
     @FXML
@@ -115,6 +119,7 @@ public class VisiteurController {
                 while (resultat.next()) {
                     int total_montant = resultat.getInt("ff_montant");
                     String montant_nuitee = txt_Qu_Nuitee.getText();
+                    Common.nuit = montant_nuitee;
                     int montant_nuitee2 = Integer.parseInt(montant_nuitee);
                     montant_nuitee2 = montant_nuitee2 * total_montant;
                     String montant_nuitee3 = Integer.toString(montant_nuitee2);
@@ -140,6 +145,7 @@ public class VisiteurController {
                 while (resultat.next()) {
                     int total_montant = resultat.getInt("ff_montant");
                     String montant_repas = txt_Repas.getText();
+                    Common.repas = montant_repas;
                     int montant_repas2 = Integer.parseInt(montant_repas);
                     montant_repas2 = montant_repas2 * total_montant;
                     String montant_repas3 = Integer.toString(montant_repas2);
@@ -165,6 +171,7 @@ public class VisiteurController {
                 while (resultat.next()) {
                     int total_montant = resultat.getInt("ff_montant");
                     String montant_km = txt_km.getText();
+                    Common.km = montant_km;
                     int montant_km2 = Integer.parseInt(montant_km);
                     montant_km2 = montant_km2 * total_montant;
                     String montant_km3 = Integer.toString(montant_km2);
@@ -176,4 +183,30 @@ public class VisiteurController {
             }
         }
     }
+
+    @FXML
+    void soumettre(ActionEvent event) {
+        String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
+        String dbURL = "jdbc:mysql://localhost:3306/sampledb";
+        String username = "root";
+        String password = "9vdkawcA_";
+        {
+            try {
+                Connection con = DriverManager.getConnection(dbURL, username, password);
+                Statement instruction = con.createStatement();
+                String st = "INSERT INTO fiche (fk_nom, fk_prenom, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
+                        Common.nom + "','" +
+                        Common.prenom + "','" +
+                        Common.nuit + "','" +
+                        Common.repas + "','" +
+                        Common.km + "','" +
+                        date + "')";
+                // System.out.println(st);
+                instruction.executeUpdate(st);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
 }
