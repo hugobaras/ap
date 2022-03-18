@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+
 
 public class Visiteur2Controller {
     @FXML
@@ -43,12 +44,16 @@ public class Visiteur2Controller {
 
     @FXML
     private Label txt_qu_repas;
-    
+
     @FXML
-    private ComboBox<?> comb;
+    private ComboBox<String> comb;
 
     public void initialize() {
         txt_nom.setText(Common.nom + " " + Common.prenom);
+    }
+
+    @FXML
+    void combobox(MouseEvent event) {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
@@ -56,24 +61,22 @@ public class Visiteur2Controller {
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
-                ResultSet resultat = instruction.executeQuery("SELECT date FROM fiche");
+                String requete = "SELECT date FROM fiche";
+                ResultSet resultat = instruction.executeQuery(requete);
+                ResultSetMetaData result = resultat.getMetaData();
+                int nbCol = result.getColumnCount();
                 while (resultat.next()) {
-                    String date = resultat.getString("date");
-                    ObservableList<String> list = FXCollections.observableArrayList(date);
-                  //  comb.setItems(list);
-                
+                    String recupdate = resultat.getString("date");
+                    Object[] obj = new Object[1];
+                    obj[0] = recupdate;
+                    comb.getItems().add(recupdate);
+
                 }
+                resultat.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
-    }
-    
-    
-    
-    @FXML
-    void combobox(ActionEvent event) {
-       String s  =comb.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML

@@ -131,6 +131,7 @@
             <Label fx:id="total_km" alignment="CENTER" layoutX="568.0" layoutY="254.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
             <Label fx:id="txt_mu_nuit" alignment="CENTER" layoutX="378.0" layoutY="203.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
             <Label fx:id="txt_nom" alignment="CENTER" layoutX="580.0" layoutY="7.0" prefHeight="30.0" prefWidth="158.0" textFill="WHITE" />
+            <Label layoutX="660.0" layoutY="10.0" text="Label" textAlignment="CENTER" textFill="WHITE" />
          </children></AnchorPane>
       <Button layoutX="8.0" layoutY="146.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: fbfcfcfc;" text="Renseigner une fiche" textFill="WHITE" />
       <Button layoutX="8.0" layoutY="220.0" mnemonicParsing="false" onAction="#consulter" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" text="Consulter une fiche" textFill="WHITE" />
