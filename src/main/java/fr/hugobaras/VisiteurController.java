@@ -56,7 +56,6 @@ public class VisiteurController {
     }
 
     public void initialize() {
-        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";

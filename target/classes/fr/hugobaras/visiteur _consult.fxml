@@ -13,7 +13,7 @@
       <AnchorPane layoutX="245.0" layoutY="9.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: b8b8b8b8;">
          <children>
             <Label fx:id="txt_nom" alignment="CENTER" layoutX="581.0" layoutY="3.0" prefHeight="29.0" prefWidth="155.0" textFill="WHITE" />
-            <ComboBox fx:id="comb" layoutX="14.0" layoutY="93.0" onMouseClicked="#combobox" prefHeight="29.0" prefWidth="168.0" promptText="Selectionner la fiche" style="-fx-background-color: b8b8b8b8; -fx-border-color: #fbfcfc;" />
+            <ComboBox fx:id="comb" layoutX="14.0" layoutY="93.0" onAction="#combobox" prefHeight="29.0" prefWidth="168.0" promptText="Selectionner la fiche" style="-fx-background-color: b8b8b8b8; -fx-border-color: #fbfcfc;" />
             <Line endX="556.0" layoutX="112.0" layoutY="153.0" startX="-31.0" stroke="#fbfcfc" />
             <Line endX="100.0" endY="-12.0" layoutX="-20.0" layoutY="191.0" startX="100.0" startY="-37.357421875" stroke="#fbfcfc" />
             <Line endX="556.0" layoutX="112.0" layoutY="180.0" startX="-31.0" stroke="#fbfcfc" />
