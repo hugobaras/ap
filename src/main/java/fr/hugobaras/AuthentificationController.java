@@ -29,7 +29,7 @@ public class AuthentificationController {
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
             ResultSet resultat = instruction
-                    .executeQuery("SELECT ag_login, ag_nom, ag_prenom, ta_fk, ag_password FROM agents");
+                    .executeQuery("SELECT ag_login, ag_nom, ag_prenom, ta_fk, ag_password, ag_MATRICULE FROM agents");
 
             while (resultat.next()) {
 
@@ -38,10 +38,12 @@ public class AuthentificationController {
                 int id = resultat.getInt("ta_fk");
                 String nom = resultat.getString("ag_nom");
                 String prenom = resultat.getString("ag_prenom");
+                int matricule = resultat.getInt("ag_MATRICULE");
 
                 if (login.equals(resultat.getString("ag_login")) && pass.equals(resultat.getString("ag_password"))) {
                     Common.nom = nom;
                     Common.prenom = prenom;
+                    Common.matricule = matricule;
                     if (id < 2) {
                         App.setRoot("visiteur");
                     } else {

@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 
 public class Visiteur2Controller {
     @FXML
@@ -56,7 +55,8 @@ public class Visiteur2Controller {
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
-                String requete = "SELECT date FROM fiche";
+                //String requete = "SELECT date FROM fiche  WHERE fk_nom = '" + Common.nom + "' and fk_prenom = '" + Common.prenom + "'";
+                String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
                 ResultSet resultat = instruction.executeQuery(requete);
                 ResultSetMetaData result = resultat.getMetaData();
                 int nbCol = result.getColumnCount();
@@ -181,3 +181,4 @@ public class Visiteur2Controller {
     }
 
 }
+

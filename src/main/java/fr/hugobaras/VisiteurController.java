@@ -56,7 +56,6 @@ public class VisiteurController {
     }
 
     public void initialize() {
-
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
@@ -67,6 +66,7 @@ public class VisiteurController {
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery("SELECT * FROM fraisforfait WHERE id = 'NUI'");
                 while (resultat.next()) {
+
                     int total_montant = resultat.getInt("ff_montant");
                     String total_montant2 = Integer.toString(total_montant);
                     txt_mu_nuit.setText(total_montant2);
@@ -193,19 +193,49 @@ public class VisiteurController {
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
-                String st = "INSERT INTO fiche (fk_nom, fk_prenom, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
-                        Common.nom + "','" +
-                        Common.prenom + "','" +
-                        Common.nuit + "','" +
-                        Common.repas + "','" +
-                        Common.km + "','" +
-                        date + "')";
-                // System.out.println(st);
-                instruction.executeUpdate(st);
+                // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
+                // and fk_prenom = '" + Common.prenom + "'";
+                String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
+                ResultSet resultat = instruction.executeQuery(requete);
+                while (resultat.next()) {
+                    String recupdate = resultat.getString("date");
+                    Common.recupdate = recupdate;
+                }
+                resultat.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
+
+            }
+            if (date == Common.recupdate) {
+                try {
+                    Connection con = DriverManager.getConnection(dbURL, username, password);
+                    Statement instruction = con.createStatement();
+                    String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
+                            + "', qu_repas = '" + Common.repas
+                            + "', qu_km = '" + Common.km
+                            + "' WHERE fk_matricule = '" + Common.matricule
+                            + "'and date = '" + date + "'";
+                    // System.out.println(st);
+                    instruction.executeUpdate(st);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                try {
+                    Connection con = DriverManager.getConnection(dbURL, username, password);
+                    Statement instruction = con.createStatement();
+                    String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
+                            Common.matricule + "','" +
+                            Common.nuit + "','" +
+                            Common.repas + "','" +
+                            Common.km + "','" +
+                            date + "')";
+                    // System.out.println(st);
+                    instruction.executeUpdate(st);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }
-
 }

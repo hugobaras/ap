@@ -5,13 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 
 public class ComptableController {
     
@@ -43,8 +40,6 @@ public class ComptableController {
     private TextField txt_qu_repas;
     
     public void initialize() {
-        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
