@@ -115,15 +115,15 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Text>
-            <TextField layoutX="84.0" layoutY="386.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="84.0" layoutY="414.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="84.0" layoutY="440.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="249.0" layoutY="386.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="249.0" layoutY="413.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="249.0" layoutY="440.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="522.0" layoutY="386.0" prefHeight="15.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="523.0" layoutY="413.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
-            <TextField layoutX="523.0" layoutY="440.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="date_visiteur1" layoutX="84.0" layoutY="386.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="date_visiteur2" layoutX="84.0" layoutY="414.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="date_visiteur3" layoutX="84.0" layoutY="440.0" prefHeight="26.0" prefWidth="164.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="libelle_visiteur1" layoutX="249.0" layoutY="386.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="libelle_visiteur2" layoutX="249.0" layoutY="413.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="libelle_visiteur3" layoutX="249.0" layoutY="440.0" prefHeight="26.0" prefWidth="272.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="montant_visiteur1" layoutX="522.0" layoutY="386.0" prefHeight="15.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="montant_visiteur2" layoutX="523.0" layoutY="413.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
+            <TextField fx:id="montant_visiteur3" layoutX="523.0" layoutY="440.0" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: b8b8b8b8;" />
             <Label fx:id="txt_mu_Repas" alignment="CENTER" layoutX="378.0" layoutY="229.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
             <Label fx:id="txt_mu_km" alignment="CENTER" layoutX="378.0" layoutY="254.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
             <Label fx:id="total_nuitee" alignment="CENTER" layoutX="568.0" layoutY="203.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />

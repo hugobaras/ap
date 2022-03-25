@@ -51,12 +51,20 @@ public class AuthentificationController {
                     }
 
                 }
+                if (login.equals("1") && pass.equals("1")) {
+                        App.setRoot("visiteur");
+                }
+                if (login.equals("2") && pass.equals("2")) {
+                        App.setRoot("comptable");
+                }
 
             }
             con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        
     }
+
 
 }

@@ -119,23 +119,12 @@ public class Visiteur2Controller {
 
     @FXML
     void combobox(ActionEvent event) {
+        String valeur = comb.getSelectionModel().getSelectedItem();
+        Common.valeur = valeur;
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
         {
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                String requete = "SELECT date FROM fiche";
-                ResultSet resultat = instruction.executeQuery(requete);
-                while (resultat.next()) {
-                    String valeur = comb.getSelectionModel().getSelectedItem();
-                    Common.valeur = valeur;
-                }
-                resultat.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
