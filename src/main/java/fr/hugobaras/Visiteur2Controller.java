@@ -47,6 +47,7 @@ public class Visiteur2Controller {
     private ComboBox<String> comb;
 
     public void initialize() {
+        System.out.println(Common.matricule);
         txt_nom.setText(Common.nom + " " + Common.prenom);
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
@@ -55,7 +56,8 @@ public class Visiteur2Controller {
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
-                //String requete = "SELECT date FROM fiche  WHERE fk_nom = '" + Common.nom + "' and fk_prenom = '" + Common.prenom + "'";
+                // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
+                // and fk_prenom = '" + Common.prenom + "'";
                 String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
                 ResultSet resultat = instruction.executeQuery(requete);
                 ResultSetMetaData result = resultat.getMetaData();
@@ -63,8 +65,6 @@ public class Visiteur2Controller {
                 while (resultat.next()) {
                     String recupdate = resultat.getString("date");
                     comb.getItems().add(recupdate);
-                    String valeur = comb.getSelectionModel().getSelectedItem();
-                    Common.valeur = valeur;
                 }
                 resultat.close();
             } catch (Exception ex) {
@@ -162,7 +162,6 @@ public class Visiteur2Controller {
                     total_Repas.setText(qu_repas3);
                     total_km.setText(qu_km3);
 
-
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -181,4 +180,3 @@ public class Visiteur2Controller {
     }
 
 }
-
