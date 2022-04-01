@@ -83,10 +83,20 @@ public class VisiteurController {
     }
 
     public void initialize() {
+        String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
         {
+            try {
+                Connection con = DriverManager.getConnection(dbURL, username, password);
+                Statement instruction = con.createStatement();
+                String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('"
+                        + Common.matricule + "' , '0' , '0' , '0' , '" + date + "')";
+                instruction.executeUpdate(st);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             try {
 
                 Connection con = DriverManager.getConnection(dbURL, username, password);
@@ -124,6 +134,20 @@ public class VisiteurController {
                 int total_montant = resultat.getInt("ff_montant");
                 String total_montant2 = Integer.toString(total_montant);
                 txt_mu_km.setText(total_montant2);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        try {
+
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            ResultSet resultat = instruction.executeQuery("SELECT id_fiche FROM fiche WHERE fk_matricule = '"
+                    + Common.matricule + "' and date = '" + date + "'");
+            while (resultat.next()) {
+                int id_fiche = resultat.getInt("id_fiche");
+                Common.id_fiche = id_fiche;
+                System.out.println(id_fiche);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -238,45 +262,29 @@ public class VisiteurController {
                     ex.printStackTrace();
 
                 }
-                if (date == Common.recupdate) {
-                    try {
-                        Connection con = DriverManager.getConnection(dbURL, username, password);
-                        Statement instruction = con.createStatement();
-                        String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
-                                + "', qu_repas = '" + Common.repas
-                                + "', qu_km = '" + Common.km
-                                + "' WHERE fk_matricule = '" + Common.matricule
-                                + "'and date = '" + date + "'";
-                        // System.out.println(st);
-                        instruction.executeUpdate(st);
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                } else {
-                    try {
-                        Connection con = DriverManager.getConnection(dbURL, username, password);
-                        Statement instruction = con.createStatement();
-                        String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
-                                Common.matricule + "','" +
-                                Common.nuit + "','" +
-                                Common.repas + "','" +
-                                Common.km + "','" +
-                                date + "')";
-                        // System.out.println(st);
-                        instruction.executeUpdate(st);
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-
+                try {
+                    Connection con = DriverManager.getConnection(dbURL, username, password);
+                    Statement instruction = con.createStatement();
+                    String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
+                            + "', qu_repas = '" + Common.repas
+                            + "', qu_km = '" + Common.km
+                            + "' WHERE fk_matricule = '" + Common.matricule
+                            + "'and date = '" + date + "'";
+                    // System.out.println(st);
+                    instruction.executeUpdate(st);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
+
             }
             if (date1 == null) {
             } else {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
-                    String st = "INSERT INTO autresfrais (fk_matricule, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('" +
-                            Common.matricule + "','" +
+                    String st = "INSERT INTO autresfrais (fk_fiche, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('"
+                            +
+                            Common.id_fiche + "','" +
                             date1 + "','" +
                             libelle_visiteur1.getText() + "','" +
                             montant_visiteur1.getText() + "','" +
@@ -292,8 +300,9 @@ public class VisiteurController {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
-                    String st = "INSERT INTO autresfrais (fk_matricule, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('" +
-                            Common.matricule + "','" +
+                    String st = "INSERT INTO autresfrais (fk_fiche, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('"
+                            +
+                            Common.id_fiche + "','" +
                             date2 + "','" +
                             libelle_visiteur2.getText() + "','" +
                             montant_visiteur2.getText() + "','" +
@@ -309,8 +318,9 @@ public class VisiteurController {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
-                    String st = "INSERT INTO autresfrais (fk_matricule, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('" +
-                            Common.matricule + "','" +
+                    String st = "INSERT INTO autresfrais (fk_fiche, af_date, af_libellé, af_montant, date_ajout, fk_eaf) VALUES ('"
+                            +
+                            Common.id_fiche + "','" +
                             date3 + "','" +
                             libelle_visiteur3.getText() + "','" +
                             montant_visiteur3.getText() + "','" +

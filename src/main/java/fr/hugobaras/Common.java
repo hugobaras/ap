@@ -18,6 +18,11 @@ public class Common {
     public static int mu_nuit;
     public static int mu_repas;
     public static int mu_km;
+    public static int id_fiche;
+    public static int etatfiche1;
+    public static int etatfiche2;
+    public static int etatfiche3;
+
 
     public static String date;
     public static String valeur;

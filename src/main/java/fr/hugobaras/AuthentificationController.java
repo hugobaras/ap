@@ -21,6 +21,10 @@ public class AuthentificationController {
 
     @FXML
     public void connexion(ActionEvent event) throws IOException {
+        String a = "laurent.dupont";
+        String z = "lolo";
+        String q = "elise.leroy";
+        String s = "king";
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
@@ -51,13 +55,7 @@ public class AuthentificationController {
                     }
 
                 }
-                if (login.equals("1") && pass.equals("1")) {
-                        App.setRoot("visiteur");
-                }
-                if (login.equals("2") && pass.equals("2")) {
-                        App.setRoot("comptable");
-                }
-
+                
             }
             con.close();
         } catch (SQLException ex) {

@@ -31,15 +31,15 @@
             </Text>
          </children>
       </AnchorPane>
-      <Label fx:id="txt_mu_Repas" alignment="CENTER" layoutX="626.0" layoutY="260.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
-      <Label fx:id="txt_mu_km" alignment="CENTER" layoutX="626.0" layoutY="285.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
-      <Label fx:id="total_nuitee" alignment="CENTER" layoutX="816.0" layoutY="234.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
-      <Label fx:id="total_Repas" alignment="CENTER" layoutX="816.0" layoutY="260.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
-      <Label fx:id="total_km" alignment="CENTER" layoutX="816.0" layoutY="285.0" prefHeight="18.0" prefWidth="96.0" textFill="#fbfcfc" />
-      <Label fx:id="txt_mu_nuit" alignment="CENTER" layoutX="626.0" layoutY="234.0" prefHeight="18.0" prefWidth="183.0" textFill="#fbfcfc" />
-      <Label fx:id="txt_qu_km" alignment="CENTER" layoutX="502.0" layoutY="286.0" prefHeight="18.0" prefWidth="118.0" textFill="#fbfcfc" />
-      <Label fx:id="txt_qu_repas" alignment="CENTER" layoutX="502.0" layoutY="261.0" prefHeight="18.0" prefWidth="118.0" textFill="#fbfcfc" />
-      <Label fx:id="txt_qu_nui" alignment="CENTER" layoutX="502.0" layoutY="235.0" prefHeight="18.0" prefWidth="118.0" textFill="#fbfcfc" />
+      <Label fx:id="txt_mu_Repas" alignment="CENTER" layoutX="626.0" layoutY="260.0" prefHeight="18.0" prefWidth="183.0" textFill="WHITE" />
+      <Label fx:id="txt_mu_km" alignment="CENTER" layoutX="626.0" layoutY="285.0" prefHeight="18.0" prefWidth="183.0" textFill="WHITE" />
+      <Label fx:id="total_nuitee" alignment="CENTER" layoutX="816.0" layoutY="234.0" prefHeight="18.0" prefWidth="96.0" textFill="WHITE" />
+      <Label fx:id="total_Repas" alignment="CENTER" layoutX="816.0" layoutY="260.0" prefHeight="18.0" prefWidth="96.0" textFill="WHITE" />
+      <Label fx:id="total_km" alignment="CENTER" layoutX="816.0" layoutY="285.0" prefHeight="18.0" prefWidth="96.0" textFill="WHITE" />
+      <Label fx:id="txt_mu_nuit" alignment="CENTER" layoutX="626.0" layoutY="234.0" prefHeight="18.0" prefWidth="183.0" textFill="WHITE" />
+      <Label fx:id="txt_qu_km" alignment="CENTER" layoutX="502.0" layoutY="286.0" prefHeight="18.0" prefWidth="118.0" textFill="WHITE" />
+      <Label fx:id="txt_qu_repas" alignment="CENTER" layoutX="502.0" layoutY="261.0" prefHeight="18.0" prefWidth="118.0" textFill="WHITE" />
+      <Label fx:id="txt_qu_nui" alignment="CENTER" layoutX="502.0" layoutY="235.0" prefHeight="18.0" prefWidth="118.0" textFill="WHITE" />
       <AnchorPane layoutX="246.0" layoutY="11.0" prefHeight="682.0" prefWidth="743.0" style="-fx-background-color: #a8a8a8a8;">
          <children>
             <Text fill="#fbfcfc" layoutX="175.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FICHE DE REMBOURSEMENT DE FRAIS ENGAGES">
@@ -141,22 +141,21 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Text>
-            <CheckBox layoutX="684.0" layoutY="409.0" mnemonicParsing="false" textFill="WHITE" />
-            <CheckBox layoutX="684.0" layoutY="435.0" mnemonicParsing="false" />
-            <CheckBox layoutX="684.0" layoutY="462.0" mnemonicParsing="false" />
-            <Button layoutX="556.0" layoutY="573.0" mnemonicParsing="false" style="-fx-background-color: b8b8b8b8;" text="Refuser" />
+            <CheckBox fx:id="checkbox1" layoutX="684.0" layoutY="409.0" mnemonicParsing="false" onAction="#checkbox1" textFill="WHITE" />
+            <CheckBox fx:id="checkbox2" layoutX="684.0" layoutY="435.0" mnemonicParsing="false" onAction="#checkbox2" />
+            <CheckBox fx:id="checkbox3" layoutX="684.0" layoutY="462.0" mnemonicParsing="false" onAction="#checkbox3" />
             <Label layoutX="83.0" layoutY="160.0" text="Visiteur :" textFill="WHITE" />
             <Label layoutX="138.0" layoutY="161.0" prefHeight="18.0" prefWidth="144.0" textFill="#fbfcfc" />
             <ComboBox fx:id="comb" layoutX="19.0" layoutY="114.0" onAction="#combobox" prefHeight="29.0" prefWidth="168.0" promptText="Selectionner l'agent" style="-fx-background-color: b8b8b8b8; -fx-border-color: #fbfcfc;" />
-            <Label fx:id="Date1" layoutX="153.0" layoutY="413.0" textAlignment="CENTER" />
-            <Label fx:id="Date2" layoutX="153.0" layoutY="439.0" textAlignment="CENTER" />
-            <Label fx:id="Date3" layoutX="153.0" layoutY="466.0" textAlignment="CENTER" />
-            <Label fx:id="libelle1" layoutX="365.0" layoutY="413.0" textAlignment="CENTER" />
-            <Label fx:id="libelle2" layoutX="365.0" layoutY="439.0" textAlignment="CENTER" />
-            <Label fx:id="libelle3" layoutX="365.0" layoutY="466.0" textAlignment="CENTER" />
-            <Label fx:id="montant1" layoutX="586.0" layoutY="413.0" textAlignment="CENTER" />
-            <Label fx:id="montant2" layoutX="586.0" layoutY="439.0" textAlignment="CENTER" />
-            <Label fx:id="montant3" layoutX="586.0" layoutY="466.0" textAlignment="CENTER" />
+            <Label fx:id="Date1" layoutX="153.0" layoutY="413.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="Date2" layoutX="153.0" layoutY="439.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="Date3" layoutX="153.0" layoutY="466.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="libelle1" layoutX="365.0" layoutY="413.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="libelle2" layoutX="365.0" layoutY="439.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="libelle3" layoutX="365.0" layoutY="466.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="montant1" layoutX="586.0" layoutY="413.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="montant2" layoutX="586.0" layoutY="439.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="montant3" layoutX="586.0" layoutY="466.0" textAlignment="CENTER" textFill="WHITE" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

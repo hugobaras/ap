@@ -10,10 +10,19 @@ import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 public class ComptableController {
+    @FXML
+    private CheckBox checkbox1;
+
+    @FXML
+    private CheckBox checkbox2;
+
+    @FXML
+    private CheckBox checkbox3;
 
     @FXML
     private ComboBox<String> comb;
@@ -191,14 +200,16 @@ public class ComptableController {
         String username = "root";
         String password = "9vdkawcA_";
         {
+
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery(
-                        "SELECT qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + date
+                        "SELECT id_fiche, qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + date
                                 + "' and fk_matricule = '" + mat_visiteur + "'");
                 while (resultat.next()) {
-
+                    int id_fiche = resultat.getInt("id_fiche");
+                    Common.id_fiche = id_fiche;
                     String qu_nuitee = resultat.getString("qu_nuitee");
                     String qu_repas = resultat.getString("qu_repas");
                     String qu_km = resultat.getString("qu_km");
@@ -222,16 +233,28 @@ public class ComptableController {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+
             try {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery(
-                        "SELECT af_date, af_libellé, af_montant FROM autresfrais WHERE date_ajout = '" + date
-                                + "' and fk_matricule = '" + mat_visiteur + "'");
-                while (resultat.next()) {
+                        "SELECT af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '" + Common.id_fiche
+                                + "' ");
+                if (resultat.next()) {
                     montant1.setText(resultat.getString("af_montant"));
                     Date1.setText(resultat.getString("af_date"));
                     libelle1.setText(resultat.getString("af_libellé"));
+                }
+                if (resultat.next()) {
+                    montant2.setText(resultat.getString("af_montant"));
+                    Date2.setText(resultat.getString("af_date"));
+                    libelle2.setText(resultat.getString("af_libellé"));
+                }
+                if (resultat.next()) {
+                    montant3.setText(resultat.getString("af_montant"));
+                    Date3.setText(resultat.getString("af_date"));
+                    libelle3.setText(resultat.getString("af_libellé"));
+
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -248,6 +271,33 @@ public class ComptableController {
     @FXML
     void consulter(ActionEvent event) throws IOException {
         App.setRoot("comptable_consult");
+    }
+
+    @FXML
+    void checkbox1(ActionEvent event) {
+        if (checkbox1.isSelected()) {
+            Common.etatfiche1 = 1;
+        } else {
+            Common.etatfiche1 = 2;
+        }
+    }
+
+    @FXML
+    void checkbox2(ActionEvent event) {
+        if (checkbox1.isSelected()) {
+            Common.etatfiche2 = 1;
+        } else {
+            Common.etatfiche2 = 2;
+        }
+    }
+
+    @FXML
+    void checkbox3(ActionEvent event) {
+        if (checkbox1.isSelected()) {
+            Common.etatfiche3 = 1;
+        } else {
+            Common.etatfiche3 = 2;
+        }
     }
 
     @FXML
