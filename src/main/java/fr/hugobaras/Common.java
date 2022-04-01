@@ -31,7 +31,7 @@ public class Common {
         String password = "9vdkawcA_";
 
         try {
-            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Connection con = getConnexion(dbURL, username, password);
             Statement instruction = con.createStatement();
             ResultSet resultat = instruction
                     .executeQuery("SELECT " + select + " FROM " + from + "");
@@ -43,13 +43,17 @@ public class Common {
         }
     }
 
+    private static Connection getConnexion(String dbURL, String username, String password) throws SQLException {
+        return DriverManager.getConnection(dbURL, username, password);
+    }
+
     public static void connexion_Bdd_Where(String select, String from, String ID, String valeur) {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
 
         try {
-            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Connection con = getConnexion(dbURL, username, password);
             Statement instruction = con.createStatement();
             ResultSet resultat = instruction
                     .executeQuery("SELECT " + select + " FROM " + from + " WHERE " + ID + " = '" + valeur + "' ");

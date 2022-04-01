@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 public class ComptableController {
 
@@ -49,6 +47,31 @@ public class ComptableController {
 
     @FXML
     private Label txt_qu_repas;
+    @FXML
+    private Label libelle1;
+    @FXML
+    private Label libelle2;
+
+    @FXML
+    private Label libelle3;
+
+    @FXML
+    private Label montant1;
+
+    @FXML
+    private Label montant2;
+
+    @FXML
+    private Label montant3;
+
+    @FXML
+    private Label Date1;
+
+    @FXML
+    private Label Date2;
+
+    @FXML
+    private Label Date3;
 
     public void initialize() {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
@@ -143,8 +166,6 @@ public class ComptableController {
         try {
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
-            // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
-            // and fk_prenom = '" + Common.prenom + "'";
             String requete = "SELECT ag_MATRICULE FROM agents WHERE ta_fk = '1'";
             ResultSet resultat = instruction.executeQuery(requete);
             while (resultat.next()) {
@@ -162,37 +183,9 @@ public class ComptableController {
 
     @FXML
     void combobox(ActionEvent event) {
+        String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
         String mat_visiteur = comb.getSelectionModel().getSelectedItem();
-        Common.mat_visiteur = mat_visiteur;
         System.out.println(mat_visiteur);
-
-        String dbURL = "jdbc:mysql://localhost:3306/sampledb";
-        String username = "root";
-        String password = "9vdkawcA_";
-        {
-
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + mat_visiteur + "' ";
-                ResultSet resultat = instruction.executeQuery(requete);
-                comb1.getItems().clear();
-                while (resultat.next()) {
-                    String recupdate = resultat.getString("date");
-                    comb1.getItems().add(recupdate);
-                    System.out.println(recupdate);
-                }
-                resultat.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-
-            }
-        }
-    }
-
-    @FXML
-    void combobox1(ActionEvent event) {
-        String valeur = comb1.getSelectionModel().getSelectedItem();
 
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
@@ -202,8 +195,8 @@ public class ComptableController {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery(
-                        "SELECT qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + valeur
-                                + "' and fk_matricule = '" + Common.mat_visiteur + "'");
+                        "SELECT qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + date
+                                + "' and fk_matricule = '" + mat_visiteur + "'");
                 while (resultat.next()) {
 
                     String qu_nuitee = resultat.getString("qu_nuitee");
@@ -229,7 +222,22 @@ public class ComptableController {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            try {
+                Connection con = DriverManager.getConnection(dbURL, username, password);
+                Statement instruction = con.createStatement();
+                ResultSet resultat = instruction.executeQuery(
+                        "SELECT af_date, af_libellé, af_montant FROM autresfrais WHERE date_ajout = '" + date
+                                + "' and fk_matricule = '" + mat_visiteur + "'");
+                while (resultat.next()) {
+                    montant1.setText(resultat.getString("af_montant"));
+                    Date1.setText(resultat.getString("af_date"));
+                    libelle1.setText(resultat.getString("af_libellé"));
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
+
     }
 
     @FXML
@@ -241,6 +249,7 @@ public class ComptableController {
     void consulter(ActionEvent event) throws IOException {
         App.setRoot("comptable_consult");
     }
+
     @FXML
     void valider(ActionEvent event) {
         String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
