@@ -10,11 +10,18 @@ import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
+import javafx.stage.Stage;
+
 public class VisiteurController {
+    private Parent parent;
+    private Stage stage;
+    private Scene scene;
     @FXML
     private TextField date_visiteur1;
 
@@ -89,13 +96,32 @@ public class VisiteurController {
         String password = "9vdkawcA_";
         {
             try {
+
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
-                String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('"
-                        + Common.matricule + "' , '0' , '0' , '0' , '" + date + "')";
-                instruction.executeUpdate(st);
+                ResultSet resultat = instruction
+                        .executeQuery("SELECT date ,fk_matricule FROM fiche WHERE fk_matricule = '" + Common.matricule
+                                + "' and date = '" + date + "'");
+                while (resultat.next()) {
+                    String recupdate = resultat.getString("date");
+                    Common.date = recupdate;
+
+                }
             } catch (Exception ex) {
                 ex.printStackTrace();
+            }
+            if (!date.equals(Common.date)) {
+                try {
+                    Connection con = DriverManager.getConnection(dbURL, username, password);
+                    Statement instruction = con.createStatement();
+                    String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('"
+                            + Common.matricule + "' , '0' , '0' , '0' , '" + date + "')";
+                    instruction.executeUpdate(st);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                System.out.println("la fiche existe déjà");
             }
             try {
 
@@ -112,7 +138,9 @@ public class VisiteurController {
                 ex.printStackTrace();
             }
         }
-        try {
+        try
+
+        {
 
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
@@ -244,8 +272,7 @@ public class VisiteurController {
         String username = "root";
         String password = "9vdkawcA_";
         {
-            if (Common.nuit == null) {
-            } else {
+            if (!Common.nuit.equals(null)) {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
@@ -260,7 +287,6 @@ public class VisiteurController {
                     resultat.close();
                 } catch (Exception ex) {
                     ex.printStackTrace();
-
                 }
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
@@ -268,7 +294,7 @@ public class VisiteurController {
                     String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
                             + "', qu_repas = '" + Common.repas
                             + "', qu_km = '" + Common.km
-                            + "' WHERE fk_matricule = '" + Common.matricule
+                            + "', fk_etat = 1 WHERE fk_matricule = '" + Common.matricule
                             + "'and date = '" + date + "'";
                     // System.out.println(st);
                     instruction.executeUpdate(st);
@@ -277,8 +303,7 @@ public class VisiteurController {
                 }
 
             }
-            if (date1 == null) {
-            } else {
+            if (!date1.equals(null)) {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
@@ -295,8 +320,7 @@ public class VisiteurController {
                     ex.printStackTrace();
                 }
             }
-            if (date2 == null) {
-            } else {
+            if (!date2.equals(null)) {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();
@@ -313,8 +337,7 @@ public class VisiteurController {
                     ex.printStackTrace();
                 }
             }
-            if (date3 == null) {
-            } else {
+            if (!date3.equals(null)) {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
                     Statement instruction = con.createStatement();

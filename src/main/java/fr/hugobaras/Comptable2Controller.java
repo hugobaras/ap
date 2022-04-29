@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +18,42 @@ public class Comptable2Controller {
 
     @FXML
     private ComboBox<String> comb1;
+
+    @FXML
+    private Label date1;
+
+    @FXML
+    private Label date2;
+
+    @FXML
+    private Label date3;
+
+    @FXML
+    private Label libelle1;
+
+    @FXML
+    private Label libelle2;
+
+    @FXML
+    private Label libelle3;
+
+    @FXML
+    private Label montant1;
+
+    @FXML
+    private Label montant2;
+
+    @FXML
+    private Label montant3;
+
+    @FXML
+    private Label qteNuitee;
+
+    @FXML
+    private Label qteRepas;
+
+    @FXML
+    private Label qteVehicule;
 
     @FXML
     private Label total_Repas;
@@ -40,13 +74,7 @@ public class Comptable2Controller {
     private Label txt_mu_nuit;
 
     @FXML
-    private Label txt_qu_km;
-
-    @FXML
-    private Label txt_qu_nui;
-
-    @FXML
-    private Label txt_qu_repas;
+    private Label txt_nom;
 
     public void initialize() {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
@@ -155,7 +183,37 @@ public class Comptable2Controller {
             ex.printStackTrace();
 
         }
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            ResultSet resultat = instruction.executeQuery(
+                    "SELECT id_autresfrais, af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '"
+                            + Common.id_fiche
+                            + "' ");
+            if (resultat.next()) {
+                Common.autresfrais1 = resultat.getInt("id_autresfrais");
+                montant1.setText(resultat.getString("af_montant"));
+                date1.setText(resultat.getString("af_date"));
+                libelle1.setText(resultat.getString("af_libellé"));
+            }
+            if (resultat.next()) {
+                Common.autresfrais2 = resultat.getInt("id_autresfrais");
+                montant2.setText(resultat.getString("af_montant"));
+                date2.setText(resultat.getString("af_date"));
+                libelle2.setText(resultat.getString("af_libellé"));
+            }
+            if (resultat.next()) {
+                Common.autresfrais3 = resultat.getInt("id_autresfrais");
+                montant3.setText(resultat.getString("af_montant"));
+                date3.setText(resultat.getString("af_date"));
+                libelle3.setText(resultat.getString("af_libellé"));
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
+
     // txt_nom.setText(Common.nom + " " + Common.prenom);
 
     @FXML
@@ -207,9 +265,9 @@ public class Comptable2Controller {
                     String qu_nuitee = resultat.getString("qu_nuitee");
                     String qu_repas = resultat.getString("qu_repas");
                     String qu_km = resultat.getString("qu_km");
-                    txt_qu_nui.setText(qu_nuitee);
-                    txt_qu_repas.setText(qu_repas);
-                    txt_qu_km.setText(qu_km);
+                    qteNuitee.setText(qu_nuitee);
+                    qteRepas.setText(qu_repas);
+                    qteVehicule.setText(qu_km);
                     int qu_nuitee2 = Integer.parseInt(qu_nuitee);
                     int qu_repas2 = Integer.parseInt(qu_repas);
                     int qu_km2 = Integer.parseInt(qu_km);
@@ -236,62 +294,13 @@ public class Comptable2Controller {
     }
 
     @FXML
-    void consulter(ActionEvent event) throws IOException {
+    void verifier(ActionEvent event) throws IOException {
         App.setRoot("comptable_consult");
     }
+
     @FXML
     void valider(ActionEvent event) {
-        String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
-        String dbURL = "jdbc:mysql://localhost:3306/sampledb";
-        String username = "root";
-        String password = "9vdkawcA_";
-        {
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
-                // and fk_prenom = '" + Common.prenom + "'";
-                String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
-                ResultSet resultat = instruction.executeQuery(requete);
-                while (resultat.next()) {
-                    String recupdate = resultat.getString("date");
-                    Common.recupdate = recupdate;
-                }
-                resultat.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
 
-            }
-            if (date == Common.recupdate) {
-                try {
-                    Connection con = DriverManager.getConnection(dbURL, username, password);
-                    Statement instruction = con.createStatement();
-                    String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
-                            + "', qu_repas = '" + Common.repas
-                            + "', qu_km = '" + Common.km
-                            + "' WHERE fk_matricule = '" + Common.matricule
-                            + "'and date = '" + date + "'";
-                    // System.out.println(st);
-                    instruction.executeUpdate(st);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            } else {
-                try {
-                    Connection con = DriverManager.getConnection(dbURL, username, password);
-                    Statement instruction = con.createStatement();
-                    String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
-                            Common.matricule + "','" +
-                            Common.nuit + "','" +
-                            Common.repas + "','" +
-                            Common.km + "','" +
-                            date + "')";
-                    // System.out.println(st);
-                    instruction.executeUpdate(st);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
     }
+
 }

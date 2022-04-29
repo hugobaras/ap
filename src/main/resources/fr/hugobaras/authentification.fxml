@@ -9,26 +9,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="400.0" maxWidth="700.0" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #a8a8a8a8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.AuthentificationController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #a8a8a8a8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.hugobaras.AuthentificationController">
    <children>
-      <TextField fx:id="txtLogin" layoutX="401.0" layoutY="91.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="235.0" promptText="Nom d'utilisateur" style="-fx-background-color: #D2D2D2D2#D2D2D2D2; -fx-border-color: #fbfcfcfc;">
+      <TextField fx:id="txtLogin" layoutX="500.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="309.0" promptText="Nom d'utilisateur" style="-fx-background-color: #D2D2D2D2#D2D2D2D2; -fx-border-color: #fbfcfcfc;">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="txtPASSWORD" layoutX="401.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="235.0" promptText="Mot de passe" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" />
-      <Button graphicTextGap="5.0" layoutX="401.0" layoutY="241.0" onAction="#connexion" prefHeight="43.0" prefWidth="235.0" style="-fx-background-color: #989898;" text="CONNEXION" textFill="#fbfcfc">
+      <PasswordField fx:id="txtPASSWORD" layoutX="500.0" layoutY="305.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="309.0" promptText="Mot de passe" style="-fx-background-color: #D2D2D2D2; -fx-border-color: #fbfcfcfc;" />
+      <Button graphicTextGap="5.0" layoutX="500.0" layoutY="391.0" onAction="#connexion" prefHeight="43.0" prefWidth="309.0" style="-fx-background-color: #989898;" text="CONNEXION" textFill="#fbfcfc">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font>
       </Button>
       <Pane layoutX="36.0" layoutY="167.0" prefHeight="67.0" prefWidth="289.0">
          <children>
-            <Text fill="#fbfcfc" layoutX="96.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory" textAlignment="CENTER">
-               <font>
-                  <Font name="Century Gothic" size="35.0" />
-               </font>
-            </Text>
             <Pane layoutX="2.0" prefHeight="67.0" prefWidth="88.0">
                <children>
                  
@@ -36,6 +31,11 @@
             </Pane>
          </children>
       </Pane>
-      <Line endX="196.0" layoutX="303.0" layoutY="192.0" rotate="90.0" startX="-100.0" stroke="#fbfcfc" strokeWidth="3.0" />
+      <Text fill="#fbfcfc" layoutX="71.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory" textAlignment="CENTER" wrappingWidth="363.089186291256">
+         <font>
+            <Font name="Century Gothic" size="45.0" />
+         </font>
+      </Text>
+      <Line endX="463.0" layoutX="266.0" layoutY="327.0" rotate="90.0" startX="-100.0" stroke="#fbfcfc" strokeWidth="2.0" />
    </children>
 </AnchorPane>

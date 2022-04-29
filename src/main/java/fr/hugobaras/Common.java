@@ -10,11 +10,15 @@ public class Common {
     public static String nom;
     public static String prenom;
     public static int matricule;
+    public static String mat_visiteur;
 
     public static String nuit;
     public static String repas;
     public static String km;
 
+    public static int autresfrais1;
+    public static int autresfrais2;
+    public static int autresfrais3;
     public static int mu_nuit;
     public static int mu_repas;
     public static int mu_km;
@@ -28,7 +32,6 @@ public class Common {
     public static String valeur;
     public static String valeur1;
     public static String recupdate;
-    public static String mat_visiteur;
 
     public static void connexion_Bdd(String select, String from) {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 import javafx.event.ActionEvent;
@@ -13,6 +12,43 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 public class Visiteur2Controller {
+
+    @FXML
+    private Label date1;
+
+    @FXML
+    private Label date2;
+
+    @FXML
+    private Label date3;
+
+    @FXML
+    private Label libelle1;
+
+    @FXML
+    private Label libelle2;
+
+    @FXML
+    private Label libelle3;
+
+    @FXML
+    private Label montant1;
+
+    @FXML
+    private Label montant2;
+
+    @FXML
+    private Label montant3;
+
+    @FXML
+    private Label qteNuitee;
+
+    @FXML
+    private Label qteRepas;
+
+    @FXML
+    private Label qteVehicule;
+
     @FXML
     private Label total_Repas;
 
@@ -35,14 +71,13 @@ public class Visiteur2Controller {
     private Label txt_nom;
 
     @FXML
-    private Label txt_qu_km;
+    private Label etat1;
 
     @FXML
-    private Label txt_qu_nui;
+    private Label etat2;
 
     @FXML
-    private Label txt_qu_repas;
-
+    private Label etat3;
     @FXML
     private ComboBox<String> comb;
 
@@ -60,8 +95,7 @@ public class Visiteur2Controller {
                 // and fk_prenom = '" + Common.prenom + "'";
                 String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
                 ResultSet resultat = instruction.executeQuery(requete);
-                ResultSetMetaData result = resultat.getMetaData();
-                int nbCol = result.getColumnCount();
+
                 while (resultat.next()) {
                     String recupdate = resultat.getString("date");
                     comb.getItems().add(recupdate);
@@ -135,9 +169,9 @@ public class Visiteur2Controller {
                     String qu_nuitee = resultat.getString("qu_nuitee");
                     String qu_repas = resultat.getString("qu_repas");
                     String qu_km = resultat.getString("qu_km");
-                    txt_qu_nui.setText(qu_nuitee);
-                    txt_qu_repas.setText(qu_repas);
-                    txt_qu_km.setText(qu_km);
+                    qteNuitee.setText(qu_nuitee);
+                    qteRepas.setText(qu_repas);
+                    qteVehicule.setText(qu_km);
                     int qu_nuitee2 = Integer.parseInt(qu_nuitee);
                     int qu_repas2 = Integer.parseInt(qu_repas);
                     int qu_km2 = Integer.parseInt(qu_km);
@@ -155,8 +189,69 @@ public class Visiteur2Controller {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            try {
+                Connection con = DriverManager.getConnection(dbURL, username, password);
+                Statement instruction = con.createStatement();
+                ResultSet resultat = instruction.executeQuery(
+                        "SELECT id_autresfrais, af_date, af_libellé, af_montant, fk_eaf FROM autresfrais WHERE fk_fiche = '"
+                                + Common.id_fiche
+                                + "' and date_ajout = '" + Common.valeur + "' ");
+                if (resultat.next()) {
+                    Common.autresfrais1 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
+                    montant1.setText(resultat.getString("af_montant"));
+                    date1.setText(resultat.getString("af_date"));
+                    libelle1.setText(resultat.getString("af_libellé"));
+                    if(etat == 1){
+                        etat1.setText("Validé");
+                    }
+                    if(etat == 2){
+                        etat1.setText("Refusé");
+                    }
+                    if(etat == 0){
+                        etat1.setText("En attente");
+                    }
+                        
+                }
+                if (resultat.next()) {
+                    Common.autresfrais2 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
+                    montant2.setText(resultat.getString("af_montant"));
+                    date2.setText(resultat.getString("af_date"));
+                    libelle2.setText(resultat.getString("af_libellé"));
+                    if(etat == 1){
+                        etat2.setText("Validé");
+                    }
+                    if(etat == 2){
+                        etat2.setText("Refusé");
+                    }
+                    if(etat == 0){
+                        etat2.setText("En attente");
+                    }
+                }
+                if (resultat.next()) {
+                    Common.autresfrais3 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
+                    montant3.setText(resultat.getString("af_montant"));
+                    date3.setText(resultat.getString("af_date"));
+                    libelle3.setText(resultat.getString("af_libellé"));
+                    if(etat == 1){
+                        etat3.setText("Validé");
+                    }
+                    if(etat == 2){
+                        etat3.setText("Refusé");
+                    }
+                    if(etat == 0){
+                        etat3.setText("En attente");
+                    }
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
+
     }
+
 
     @FXML
     void deconnect(ActionEvent event) throws IOException {

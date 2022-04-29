@@ -187,6 +187,7 @@ public class ComptableController {
             ex.printStackTrace();
 
         }
+        
     }
     // txt_nom.setText(Common.nom + " " + Common.prenom);
 
@@ -238,19 +239,23 @@ public class ComptableController {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery(
-                        "SELECT af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '" + Common.id_fiche
+                        "SELECT id_autresfrais, af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '"
+                                + Common.id_fiche
                                 + "' ");
                 if (resultat.next()) {
+                    Common.autresfrais1 = resultat.getInt("id_autresfrais");
                     montant1.setText(resultat.getString("af_montant"));
                     Date1.setText(resultat.getString("af_date"));
                     libelle1.setText(resultat.getString("af_libellé"));
                 }
                 if (resultat.next()) {
+                    Common.autresfrais2 = resultat.getInt("id_autresfrais");
                     montant2.setText(resultat.getString("af_montant"));
                     Date2.setText(resultat.getString("af_date"));
                     libelle2.setText(resultat.getString("af_libellé"));
                 }
                 if (resultat.next()) {
+                    Common.autresfrais3 = resultat.getInt("id_autresfrais");
                     montant3.setText(resultat.getString("af_montant"));
                     Date3.setText(resultat.getString("af_date"));
                     libelle3.setText(resultat.getString("af_libellé"));
@@ -273,32 +278,6 @@ public class ComptableController {
         App.setRoot("comptable_consult");
     }
 
-    @FXML
-    void checkbox1(ActionEvent event) {
-        if (checkbox1.isSelected()) {
-            Common.etatfiche1 = 1;
-        } else {
-            Common.etatfiche1 = 2;
-        }
-    }
-
-    @FXML
-    void checkbox2(ActionEvent event) {
-        if (checkbox1.isSelected()) {
-            Common.etatfiche2 = 1;
-        } else {
-            Common.etatfiche2 = 2;
-        }
-    }
-
-    @FXML
-    void checkbox3(ActionEvent event) {
-        if (checkbox1.isSelected()) {
-            Common.etatfiche3 = 1;
-        } else {
-            Common.etatfiche3 = 2;
-        }
-    }
 
     @FXML
     void valider(ActionEvent event) {
@@ -306,53 +285,96 @@ public class ComptableController {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
-        {
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
-                // and fk_prenom = '" + Common.prenom + "'";
-                String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
-                ResultSet resultat = instruction.executeQuery(requete);
-                while (resultat.next()) {
-                    String recupdate = resultat.getString("date");
-                    Common.recupdate = recupdate;
-                }
-                resultat.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-
-            }
-            if (date == Common.recupdate) {
-                try {
-                    Connection con = DriverManager.getConnection(dbURL, username, password);
-                    Statement instruction = con.createStatement();
-                    String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
-                            + "', qu_repas = '" + Common.repas
-                            + "', qu_km = '" + Common.km
-                            + "' WHERE fk_matricule = '" + Common.matricule
-                            + "'and date = '" + date + "'";
-                    // System.out.println(st);
-                    instruction.executeUpdate(st);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            } else {
-                try {
-                    Connection con = DriverManager.getConnection(dbURL, username, password);
-                    Statement instruction = con.createStatement();
-                    String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
-                            Common.matricule + "','" +
-                            Common.nuit + "','" +
-                            Common.repas + "','" +
-                            Common.km + "','" +
-                            date + "')";
-                    // System.out.println(st);
-                    instruction.executeUpdate(st);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
+        if (checkbox1.isSelected()) {
+            Common.etatfiche1 = 1;
+        } else {
+            Common.etatfiche1 = 2;
         }
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            String st = "UPDATE autresfrais SET fk_eaf = '" + Common.etatfiche1 + "' WHERE id_autresfrais = '"+ Common.autresfrais1 + "'";
+            
+            instruction.executeUpdate(st);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (checkbox2.isSelected()) {
+            Common.etatfiche2 = 1;
+        } else {
+            Common.etatfiche2 = 2;
+        }
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            String st = "UPDATE autresfrais SET fk_eaf = '" + Common.etatfiche2 + "' WHERE id_autresfrais = '"+ Common.autresfrais2 + "'";
+            
+            instruction.executeUpdate(st);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (checkbox3.isSelected()) {
+            Common.etatfiche3 = 1;
+        } else {
+            Common.etatfiche3 = 2;
+        }
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            String st = "UPDATE autresfrais SET fk_eaf = '" + Common.etatfiche3 + "' WHERE id_autresfrais = '"+ Common.autresfrais3 + "'";
+            
+            instruction.executeUpdate(st);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        // {
+        //     try {
+        //         Connection con = DriverManager.getConnection(dbURL, username, password);
+        //         Statement instruction = con.createStatement();
+        //         // String requete = "SELECT date FROM fiche WHERE fk_nom = '" + Common.nom + "'
+        //         // and fk_prenom = '" + Common.prenom + "'";
+        //         String requete = "SELECT date FROM fiche  WHERE fk_matricule = '" + Common.matricule + "' ";
+        //         ResultSet resultat = instruction.executeQuery(requete);
+        //         while (resultat.next()) {
+        //             String recupdate = resultat.getString("date");
+        //             Common.recupdate = recupdate;
+        //         }
+        //         resultat.close();
+        //     } catch (Exception ex) {
+        //         ex.printStackTrace();
+
+        //     }
+        //     if (date.equals(Common.recupdate)) {
+        //         try {
+        //             Connection con = DriverManager.getConnection(dbURL, username, password);
+        //             Statement instruction = con.createStatement();
+        //             String st = "UPDATE fiche SET qu_nuitee = '" + Common.nuit
+        //                     + "', qu_repas = '" + Common.repas
+        //                     + "', qu_km = '" + Common.km
+        //                     + "' WHERE fk_matricule = '" + Common.matricule
+        //                     + "'and date = '" + date + "'";
+        //             // System.out.println(st);
+        //             instruction.executeUpdate(st);
+        //         } catch (Exception ex) {
+        //             ex.printStackTrace();
+        //         }
+        //     } else {
+        //         try {
+        //             Connection con = DriverManager.getConnection(dbURL, username, password);
+        //             Statement instruction = con.createStatement();
+        //             String st = "INSERT INTO fiche (fk_matricule, qu_nuitee, qu_repas, qu_km, date) VALUES ('" +
+        //                     Common.matricule + "','" +
+        //                     Common.nuit + "','" +
+        //                     Common.repas + "','" +
+        //                     Common.km + "','" +
+        //                     date + "')";
+        //             // System.out.println(st);
+        //             instruction.executeUpdate(st);
+        //         } catch (Exception ex) {
+        //             ex.printStackTrace();
+        //         }
+        //     }
+        // }
     }
 }
