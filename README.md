@@ -24,7 +24,7 @@ Nous avons réalisé un tableau Kanban simple composé de quatres parties compre
 |:-------|:---------|:----:|--------:|
 
 
-[Tableau Kanban](https://trello.com/invite/b/rVH7JqII/04bb297fe96b548a5946309ef309775c/mod%C3%A8le-kanban)
+[Tableau Kanban](https://trello.com/invite/b/rVH7JqII/9b7bd25f2113099189ab73e2ac0586d3/modele-kanban)
 
 
 ## Conception et développement
