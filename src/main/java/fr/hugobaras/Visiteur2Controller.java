@@ -163,7 +163,7 @@ public class Visiteur2Controller {
                 Connection con = DriverManager.getConnection(dbURL, username, password);
                 Statement instruction = con.createStatement();
                 ResultSet resultat = instruction.executeQuery(
-                        "SELECT qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + Common.valeur + "'");
+                        "SELECT qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + Common.valeur + "' and fk_matricule = "+ Common.matricule + "");
                 while (resultat.next()) {
 
                     String qu_nuitee = resultat.getString("qu_nuitee");
@@ -202,16 +202,16 @@ public class Visiteur2Controller {
                     montant1.setText(resultat.getString("af_montant"));
                     date1.setText(resultat.getString("af_date"));
                     libelle1.setText(resultat.getString("af_libellé"));
-                    if(etat == 1){
+                    if (etat == 1) {
                         etat1.setText("Validé");
                     }
-                    if(etat == 2){
+                    if (etat == 2) {
                         etat1.setText("Refusé");
                     }
-                    if(etat == 0){
+                    if (etat == 0) {
                         etat1.setText("En attente");
                     }
-                        
+
                 }
                 if (resultat.next()) {
                     Common.autresfrais2 = resultat.getInt("id_autresfrais");
@@ -219,13 +219,13 @@ public class Visiteur2Controller {
                     montant2.setText(resultat.getString("af_montant"));
                     date2.setText(resultat.getString("af_date"));
                     libelle2.setText(resultat.getString("af_libellé"));
-                    if(etat == 1){
+                    if (etat == 1) {
                         etat2.setText("Validé");
                     }
-                    if(etat == 2){
+                    if (etat == 2) {
                         etat2.setText("Refusé");
                     }
-                    if(etat == 0){
+                    if (etat == 0) {
                         etat2.setText("En attente");
                     }
                 }
@@ -235,13 +235,13 @@ public class Visiteur2Controller {
                     montant3.setText(resultat.getString("af_montant"));
                     date3.setText(resultat.getString("af_date"));
                     libelle3.setText(resultat.getString("af_libellé"));
-                    if(etat == 1){
+                    if (etat == 1) {
                         etat3.setText("Validé");
                     }
-                    if(etat == 2){
+                    if (etat == 2) {
                         etat3.setText("Refusé");
                     }
-                    if(etat == 0){
+                    if (etat == 0) {
                         etat3.setText("En attente");
                     }
                 }
@@ -251,7 +251,6 @@ public class Visiteur2Controller {
         }
 
     }
-
 
     @FXML
     void deconnect(ActionEvent event) throws IOException {

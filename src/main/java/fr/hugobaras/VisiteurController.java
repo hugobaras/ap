@@ -10,18 +10,12 @@ import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
-import javafx.stage.Stage;
-
 public class VisiteurController {
-    private Parent parent;
-    private Stage stage;
-    private Scene scene;
     @FXML
     private TextField date_visiteur1;
 
@@ -90,7 +84,33 @@ public class VisiteurController {
     }
 
     public void initialize() {
+        
         String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
+        String date_jour = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
+        int date_jour_int = Integer.parseInt(date_jour);
+        if (date_jour_int >= 10) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Vous ne pouvez plus modifier votre saisie");
+            alert.showAndWait();
+            System.out.println("La saisie est cloturée");
+            txt_Qu_Nuitee.setEditable(false);
+            txt_Repas.setEditable(false);
+            txt_km.setEditable(false);
+            Common.etatfiche = 1;
+
+        } else {
+            txt_Qu_Nuitee.setEditable(true);
+            txt_Repas.setEditable(true);
+            txt_km.setEditable(true);
+            Common.etatfiche = 0;
+
+        }
+        if (date_jour_int == 9) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Saisie bientôt cloturée");
+            alert.setContentText("Dernier jour pour modifier votre saisie");
+            alert.showAndWait();
+        }
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
@@ -170,17 +190,30 @@ public class VisiteurController {
 
             Connection con = DriverManager.getConnection(dbURL, username, password);
             Statement instruction = con.createStatement();
-            ResultSet resultat = instruction.executeQuery("SELECT id_fiche FROM fiche WHERE fk_matricule = '"
+            ResultSet resultat = instruction.executeQuery("SELECT id_fiche, fk_etat FROM fiche WHERE fk_matricule = '"
                     + Common.matricule + "' and date = '" + date + "'");
             while (resultat.next()) {
                 int id_fiche = resultat.getInt("id_fiche");
+                int etat = resultat.getInt("fk_etat");
                 Common.id_fiche = id_fiche;
+                Common.etat = etat;
                 System.out.println(id_fiche);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         txt_nom.setText(Common.nom + " " + Common.prenom);
+        if (Common.etat < 2) {
+            try {
+
+                Connection con = DriverManager.getConnection(dbURL, username, password);
+                Statement instruction = con.createStatement();
+                instruction.executeUpdate("UPDATE fiche SET fk_etat = '" + Common.etatfiche + "' where id_fiche = '"
+                        + Common.id_fiche + "'");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @FXML

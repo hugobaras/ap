@@ -23,10 +23,11 @@ public class Common {
     public static int mu_repas;
     public static int mu_km;
     public static int id_fiche;
-    public static int etatfiche1;
-    public static int etatfiche2;
-    public static int etatfiche3;
-
+    public static int etat_af1;
+    public static int etat_af2;
+    public static int etat_af3;
+    public static int etatfiche;
+    public static int etat;
 
     public static String date;
     public static String valeur;
