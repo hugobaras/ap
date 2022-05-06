@@ -104,27 +104,27 @@
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>
             </Text>
-            <Line endX="598.0" layoutX="119.0" layoutY="380.0" startX="-31.0" stroke="#e0cda9" />
+            <Line endX="556.0" layoutX="119.0" layoutY="380.0" startX="-31.0" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="-13.0" layoutY="418.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="151.0" layoutY="419.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="424.0" layoutY="419.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="553.0" layoutY="418.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="598.0" layoutX="119.0" layoutY="408.0" startX="-31.0" stroke="#e0cda9" />
+            <Line endX="100.0" endY="-12.0" layoutX="573.0" layoutY="418.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
+            <Line endX="556.0" layoutX="119.0" layoutY="408.0" startX="-31.0" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="-13.0" layoutY="446.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="151.0" layoutY="447.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="424.0" layoutY="447.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="553.0" layoutY="446.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="598.0" layoutX="119.0" layoutY="435.0" startX="-31.0" stroke="#e0cda9" />
+            <Line endX="100.0" endY="-12.0" layoutX="573.0" layoutY="446.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
+            <Line endX="556.0" layoutX="119.0" layoutY="435.0" startX="-31.0" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="-13.0" layoutY="473.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="151.0" layoutY="474.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="424.0" layoutY="474.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="553.0" layoutY="473.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="598.0" layoutX="119.0" layoutY="462.0" startX="-31.0" stroke="#e0cda9" />
+            <Line endX="100.0" endY="-12.0" layoutX="573.0" layoutY="473.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
+            <Line endX="556.0" layoutX="119.0" layoutY="462.0" startX="-31.0" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="-13.0" layoutY="500.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="151.0" layoutY="501.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
             <Line endX="100.0" endY="-12.0" layoutX="424.0" layoutY="501.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="553.0" layoutY="500.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="598.0" layoutX="119.0" layoutY="489.0" startX="-31.0" stroke="#e0cda9" />
+            <Line endX="100.0" endY="-12.0" layoutX="573.0" layoutY="500.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
+            <Line endX="556.0" layoutX="119.0" layoutY="489.0" startX="-31.0" stroke="#e0cda9" />
             <Text fill="#e0cda9" layoutX="152.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
@@ -135,7 +135,7 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#e0cda9" layoutX="563.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Montant">
+            <Text fill="#e0cda9" layoutX="576.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Montant">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -161,18 +161,6 @@
             <Label fx:id="montant3" layoutX="586.0" layoutY="466.0" textAlignment="CENTER" textFill="#e0cda9" />
             <Label fx:id="qteRepas" layoutX="303.0" layoutY="248.0" textFill="#e0cda9" />
             <Label fx:id="qteVehicule" layoutX="303.0" layoutY="273.0" textAlignment="CENTER" textFill="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="616.0" layoutY="416.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="616.0" layoutY="444.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="616.0" layoutY="471.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Line endX="100.0" endY="-12.0" layoutX="616.0" layoutY="498.0" startX="100.0" startY="-37.357421875" stroke="#e0cda9" />
-            <Label layoutX="672.0" layoutY="384.0" text="Etat" textAlignment="CENTER" textFill="#e0cda9">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="etat1" layoutX="659.0" layoutY="412.0" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="etat2" layoutX="659.0" layoutY="439.0" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="etat3" layoutX="659.0" layoutY="466.0" textAlignment="CENTER" textFill="#e0cda9" />
          </children>
       </AnchorPane>
    </children>
