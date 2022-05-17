@@ -116,3 +116,9 @@ L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est a
 [-Consulter une fiche-](https://github.com/hugobaras/ap/blob/master/consulterComptable.png)
 
 L'agent peut ici sélectionner un visteur via son matricule (°1) ainsi qu'une date de fiche (°2). 
+
+## Base de données
+
+Nous avons donc réalisé un MCD afin d'organiser nos tables dans la base de données [-MoCoDo-](https://github.com/hugobaras/ap/bloc/master/mocodo.png)
+
+A la suite de quoi nous avons réalisé les différentes tables de la base de donnée et leur contenus ![image](https://user-images.githubusercontent.com/98149044/168809391-052abd6d-0d4c-489e-85c5-e768b1fd1945.png)
