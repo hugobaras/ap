@@ -96,29 +96,34 @@ Pour la partie code, nous avons utlisé l'IDE Visual Studio Code puisqu'il perme
 Pour la partie interface, nous avons utlisé SceneBuilder afin de simplifier la mise en place de bouton et zones d'écriture.
 
 ## Connexion à l'application
-[-Page de connexion-](https://github.com/hugobaras/ap/blob/master/login.png)
+[-Page de connexion-]
+![image](https://user-images.githubusercontent.com/98149044/168809580-3b6ee7f2-5e24-48e8-a988-89ac1d522770.png)
+
 
 En rentrant les ag_login et ag_password du tableau qui correspondent aux données de l'utilisateur, on parvient à se connecter à l'application, dans le cas de l'image, Laurent Dupont est un visiteur, il sera donc redirigé sur la page visiteur. 
 ### Visiteur
-[-Renseigner une fiche-](https://github.com/hugobaras/ap/blob/master/renseignerVisieur.png)
+[-Renseigner une fiche-]
+![image](https://user-images.githubusercontent.com/98149044/168809659-99a1332f-cb11-4415-b658-b1fe0eeb6242.png)
 
-L'agent arrive donc sur cette page sur laquelle il peut renseigner des nuitées (°1), des repas (°2) et des frais kilométriques (°3) qui sont ensuite calculés par rapport aux prix des frais en vigueur. Il peut également renseigner des autres frais (°4). Il peut ensuite soumettre sa fiche(°5). A la suite de quoi un message s'affiche [-Soumettre la fiche-](https://github.com/hugobaras/ap/blob/master/soumettre.png)
+L'agent arrive donc sur cette page sur laquelle il peut renseigner des nuitées (°1), des repas (°2) et des frais kilométriques (°3) qui sont ensuite calculés par rapport aux prix des frais en vigueur. Il peut également renseigner des autres frais (°4). Il peut ensuite soumettre sa fiche(°5). A la suite de quoi un message s'affiche [-Soumettre la fiche-] ![image](https://user-images.githubusercontent.com/98149044/168809718-0d3fda7e-d715-4f04-8158-b805aabd29c7.png)
 
-[-Consulter une fiche-](https;//github.com/hugobaras/ap/blob/master/consulterVisiteur.png)
+
+[-Consulter une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809816-0ca5b984-7cde-4bbc-8f42-69a569adede0.png)
 
 L'agent peut ici consulter les fiches qu'il a déjà remplis en séléctionnant une date(°1) et peut vérifier si ses autres frais ont été validés où refusés (°2).
 
 ### Comptable
-[-Valider une fiche-](https://github.com/hugobaras/ap/bloc/master/validerComptable.png)
+[-Valider une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809866-e6c13950-d352-4e37-8533-77054cda8e1b.png)
 
 L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://github.com/hugobaras/ap/blob/master/valider.png)
 
-[-Consulter une fiche-](https://github.com/hugobaras/ap/blob/master/consulterComptable.png)
+[-Consulter une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809938-091d0d57-6cd3-4304-8d2a-8655abfdf845.png)
 
 L'agent peut ici sélectionner un visteur via son matricule (°1) ainsi qu'une date de fiche (°2). 
 
 ## Base de données
 
-Nous avons donc réalisé un MCD afin d'organiser nos tables dans la base de données [-MoCoDo-](https://github.com/hugobaras/ap/bloc/master/mocodo.png)
+Nous avons donc réalisé un MCD afin d'organiser nos tables dans la base de données [-MoCoDo-](![image](https://user-images.githubusercontent.com/98149044/168809980-bb8a295d-2b41-465f-b916-9ed53693ade3.png)
+
 
 A la suite de quoi nous avons réalisé les différentes tables de la base de donnée et leur contenus ![image](https://user-images.githubusercontent.com/98149044/168809391-052abd6d-0d4c-489e-85c5-e768b1fd1945.png)
