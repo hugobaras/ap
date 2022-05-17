@@ -57,3 +57,57 @@ Il avance maintenant sur la base de données afin de créer une table "fiche" qu
 
 ## Difficultés rencontrées
 Un manque de communication s'est vite fait ressentir ce qui nous a empêché d'avancer efficacement. On essaie donc maintenant de discuter avant et pendant la réalisation d'une tâche afin de ne pas empiéter sur le travail de nos camarades.  
+
+
+# Compte rendu final
+
+## Equipe de conception
+- Hugo BARAS en charge de la majorité de l'aspect développement de l'application
+- Hiba en charge de la réalisation JavaFX (Scene builder)
+- Ndoumbe en charge de la conception de la base de donnée
+
+
+## Contexte
+Des visites sont effectué dans des centre médicaux afin de mettre à jour les 
+connaissances sur le pesonnel médicale et les produits utilisés.
+Ces visites sont remboursé par l’entreprise Galaxy, qui souhaite avoir une 
+application qui permettrai d’uniformiser le suivit des visites.
+Nous avons développé cette application qui permet d'informatiser et d'uniformiser 
+le suivit des visites
+
+## Fonctionnalités de l'application
+
+L'application permet l'identification d'un utilisateur avec un login et un mot de passe.
+
+Si l'utilisateur est un ***visiteur***, il pourra remplir des fiches de remboursement contenant le nombre de nuitées, de repas, de kilomètres, les frais exceptionnels qu'il a effectués avant le 10 de chaque mois ainsi que consulter les fiches déjà remplis. 
+
+S'il est ***comptable***, il pourra analyser les fiches de remboursement des visiteurs afin de les valider ou les refuser.
+
+## Outils et langages utilisés
+
+### Base de données
+
+Pour la schématisation, nous avons utilisé Excel pour le dictionnaire de données et MoCoDo pour le MCD
+Pour la conception, nous avons utilisé MySQL WorkBench.
+
+### Programmation de l'application
+
+Pour la partie code, nous avons utlisé l'IDE Visual Studio Code puisqu'il permet les "commit" simples sur GitHub
+Pour la partie interface, nous avons utlisé SceneBuilder afin de simplifier la mise en place de bouton et zones d'écriture.
+
+## Connexion à l'application
+[-Page de connexion-](https://github.com/hugobaras/ap/blob/master/login.png)
+En rentrant les ag_login et ag_password du tableau qui correspondent aux données de l'utilisateur, on parvient à se connecter à l'application, dans le cas de l'image, Laurent Dupont est un visiteur, il sera donc redirigé sur la page visiteur. 
+### Visiteur
+[-Renseigner une fiche-](https://github.com/hugobaras/ap/blob/master/renseignerVisieur.png)
+L'agent arrive donc sur cette page sur laquelle il peut renseigner des nuitées (°1), des repas (°2) et des frais kilométriques (°3) qui sont ensuite calculés par rapport aux prix des frais en vigueur. Il peut également renseigner des autres frais (°4). Il peut ensuite soumettre sa fiche(°5). A la suite de quoi un message s'affiche [-Soumettre la fiche-](https://github.com/hugobaras/ap/blob/master/soumettre.png)
+
+[-Consulter une fiche-](https;//github.com/hugobaras/ap/blob/master/consulterVisiteur.png)
+L'agent peut ici consulter les fiches qu'il a déjà remplis en séléctionnant une date(°1) et peut vérifier si ses autres frais ont été validés où refusés (°2).
+
+### Comptable
+[-Valider une fiche-](https://github.com/hugobaras/ap/bloc/master/validerComptable.png)
+L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://github.com/hugobaras/ap/blob/master/valider.png)
+
+[-Consulter une fiche-](https://github.com/hugobaras/ap/blob/master/consulterComptable.png)
+L'agent peut ici sélectionner un visteur via son matricule (°1) ainsi qu'une date de fiche (°2). 
