@@ -115,7 +115,8 @@ L'agent peut ici consulter les fiches qu'il a déjà remplis en séléctionnant 
 ### Comptable
 [-Valider une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809866-e6c13950-d352-4e37-8533-77054cda8e1b.png)
 
-L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://user-images.githubusercontent.com/98149044/168809938-091d0d57-6cd3-4304-8d2a-8655abfdf845.png)
+L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-]
+![image](https://user-images.githubusercontent.com/98149044/168809938-091d0d57-6cd3-4304-8d2a-8655abfdf845.png)
 
 
 [-Consulter une fiche-]![image](https://user-images.githubusercontent.com/98149044/168810244-7c607b22-2a3d-4fa5-9a02-c0a687cb3832.png)
@@ -129,3 +130,42 @@ Nous avons donc réalisé un MCD afin d'organiser nos tables dans la base de don
 
 
 A la suite de quoi nous avons réalisé les différentes tables de la base de donnée et leur contenus ![image](https://user-images.githubusercontent.com/98149044/168809391-052abd6d-0d4c-489e-85c5-e768b1fd1945.png)
+ Dans chacun des tables, nous avons utilisé des clés primaires afin que ca corresponde au MCD
+ 
+ [-Exemple avec table fiche-]
+ ![image](https://user-images.githubusercontent.com/98149044/168810635-bec4d6db-d59e-4fc4-ace6-b1603caa3958.png)
+ On a également des clés étrangères, ici "fk_etat" qui fait référence à la table "etat".
+ Ces clés étrangères sont déterminées par les cardinalités du MCD.
+ 
+ ## Outils de gestion de projet
+ 
+ ### Trello
+ ![image](https://user-images.githubusercontent.com/98149044/168811268-4da810bf-3198-4072-a24a-483c2de2418c.png)
+
+
+## Expérience de travail:
+### Hugo:
+J'ai beaucoup appris avec de travail notamment sur le développement JAVA. 
+  - Base de données:
+  J'ai appris comprendre les bdd afin de créer des champs et des clés étrangères que je ne maitrisais pas avant le début du projet.
+  -SceneBuilder:
+  Je n'ai pas tout de suite compris le but de SceneBuilder mais j'ai au fur et à mesure compris son intérêt, le fait de lier un TextField ou un label simplement en récuperant son code au sein de SceneBuilder pour l'intégrer directement au script JAVA fut difficile a comprendre au début mais est devenu très fluide et logique sur la suite du projet.
+  -Java:
+  Cette partie a été celle que j'ai le plus apprécié. Etant en grande partie tout seul sur le script, j'ai énormement appris en dehors des cours, grâce à des tutos, à des conseils sur des sites tels que StackOverFlow ou aux indications de Monsieur Gahide. J'ai donc pu découvrir plus en détail un langage complétement différent du Web sur lequel j'ai aimé travailler et qui laisse encore beaucoup de choses à découvrir. 
+
+### Hiba:
+...
+
+
+### Ndoumbe:
+...
+
+
+## Le travail d'équipe
+Le travail d'équipe a été le plus gros point noir de notre projet. Ce n'était pas une question d'entente au sein du groupe mais plus d'organisation. Au début chacun avançait sans se consulter ce qui créait des duplications, nous avons donc discuté de cela afin de régler le problème. Nous nous sommes donc consultés légèrement plus mais sans jamais avancer ensemble. 
+De plus, certaines absences au sein du groupe ont accentué le travail solitaire. 
+
+
+## Commit
+Nous avons également découvert les avantages des Commit. Le fait de tous travailler sur le même projet, sans avoir à se transmettre les dossiers sur une clé USB ou un disque dur a été un gain de temps énorme. 
+Une certaine organisation et rigueur ont été nécessaires égalemment afin de ne pas écraser les commits réalisés précédemments. 
