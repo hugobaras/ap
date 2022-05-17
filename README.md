@@ -97,17 +97,22 @@ Pour la partie interface, nous avons utlisé SceneBuilder afin de simplifier la 
 
 ## Connexion à l'application
 [-Page de connexion-](https://github.com/hugobaras/ap/blob/master/login.png)
+
 En rentrant les ag_login et ag_password du tableau qui correspondent aux données de l'utilisateur, on parvient à se connecter à l'application, dans le cas de l'image, Laurent Dupont est un visiteur, il sera donc redirigé sur la page visiteur. 
 ### Visiteur
 [-Renseigner une fiche-](https://github.com/hugobaras/ap/blob/master/renseignerVisieur.png)
+
 L'agent arrive donc sur cette page sur laquelle il peut renseigner des nuitées (°1), des repas (°2) et des frais kilométriques (°3) qui sont ensuite calculés par rapport aux prix des frais en vigueur. Il peut également renseigner des autres frais (°4). Il peut ensuite soumettre sa fiche(°5). A la suite de quoi un message s'affiche [-Soumettre la fiche-](https://github.com/hugobaras/ap/blob/master/soumettre.png)
 
 [-Consulter une fiche-](https;//github.com/hugobaras/ap/blob/master/consulterVisiteur.png)
+
 L'agent peut ici consulter les fiches qu'il a déjà remplis en séléctionnant une date(°1) et peut vérifier si ses autres frais ont été validés où refusés (°2).
 
 ### Comptable
 [-Valider une fiche-](https://github.com/hugobaras/ap/bloc/master/validerComptable.png)
+
 L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://github.com/hugobaras/ap/blob/master/valider.png)
 
 [-Consulter une fiche-](https://github.com/hugobaras/ap/blob/master/consulterComptable.png)
+
 L'agent peut ici sélectionner un visteur via son matricule (°1) ainsi qu'une date de fiche (°2). 
