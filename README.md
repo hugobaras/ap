@@ -115,9 +115,11 @@ L'agent peut ici consulter les fiches qu'il a déjà remplis en séléctionnant 
 ### Comptable
 [-Valider une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809866-e6c13950-d352-4e37-8533-77054cda8e1b.png)
 
-L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://github.com/hugobaras/ap/blob/master/valider.png)
+L'agent peut ici sélectionner un visiteur via son matricule(°1), son nom est affiché en dessous (°3). Il peut également valider un frais en le cochant ou le refuser sans le cocher. Afin de valider la fiche, l'agent appuyera sur le bouton valider et le message suivant apparaitra [-Valider-](https://user-images.githubusercontent.com/98149044/168809938-091d0d57-6cd3-4304-8d2a-8655abfdf845.png)
 
-[-Consulter une fiche-]![image](https://user-images.githubusercontent.com/98149044/168809938-091d0d57-6cd3-4304-8d2a-8655abfdf845.png)
+
+[-Consulter une fiche-]![image](https://user-images.githubusercontent.com/98149044/168810244-7c607b22-2a3d-4fa5-9a02-c0a687cb3832.png)
+
 
 L'agent peut ici sélectionner un visteur via son matricule (°1) ainsi qu'une date de fiche (°2). 
 
