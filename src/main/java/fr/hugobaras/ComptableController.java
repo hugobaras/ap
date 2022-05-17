@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -194,6 +195,22 @@ public class ComptableController {
 
     @FXML
     void combobox(ActionEvent event) {
+        txt_qu_nui.setText(" a");
+        txt_qu_km.setText("a ");
+        txt_qu_repas.setText(" a");
+        total_nuitee.setText(" a");
+        total_km.setText("a ");
+        total_Repas.setText("a ");
+        montant1.setText(" a");
+        montant2.setText("a ");
+        montant3.setText(" a");
+        Date1.setText(" a");
+        Date2.setText(" a");
+        Date3.setText(" a");
+        libelle1.setText(" a");
+        libelle2.setText("a");
+        libelle3.setText(" a");
+
         String date = new SimpleDateFormat("yyyy/MM").format(Calendar.getInstance().getTime());
         String mat_visiteur = comb.getSelectionModel().getSelectedItem();
         System.out.println(mat_visiteur);
@@ -201,92 +218,82 @@ public class ComptableController {
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";
-        {
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                ResultSet resultat = instruction.executeQuery(
-                        "SELECT ag_nom, ag_prenom FROM agents WHERE ag_matricule = '" + mat_visiteur + "'");
-                while (resultat.next()) {
-                    String nom = resultat.getString("ag_nom");
-                    String prenom = resultat.getString("ag_prenom");
-                    String nom_prenom = nom + " " + prenom;
-                    nom_visiteur.setText(nom_prenom);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            ResultSet resultat = instruction.executeQuery(
+                    "SELECT ag_nom, ag_prenom FROM agents WHERE ag_matricule = '" + mat_visiteur + "'");
+            while (resultat.next()) {
+                String nom = resultat.getString("ag_nom");
+                String prenom = resultat.getString("ag_prenom");
+                String nom_prenom = nom + " " + prenom;
+                nom_visiteur.setText(nom_prenom);
             }
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                ResultSet resultat = instruction.executeQuery(
-                        "SELECT id_fiche, qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + date
-                                + "' and fk_matricule = '" + mat_visiteur + "'");
-                while (resultat.next()) {
-                    int id_fiche = resultat.getInt("id_fiche");
-                    Common.id_fiche = id_fiche;
-                    String qu_nuitee = resultat.getString("qu_nuitee");
-                    String qu_repas = resultat.getString("qu_repas");
-                    String qu_km = resultat.getString("qu_km");
-                    txt_qu_nui.setText(qu_nuitee);
-                    txt_qu_repas.setText(qu_repas);
-                    txt_qu_km.setText(qu_km);
-                    int qu_nuitee2 = Integer.parseInt(qu_nuitee);
-                    int qu_repas2 = Integer.parseInt(qu_repas);
-                    int qu_km2 = Integer.parseInt(qu_km);
-                    qu_nuitee2 = qu_nuitee2 * Common.mu_nuit;
-                    qu_repas2 = qu_repas2 * Common.mu_repas;
-                    qu_km2 = qu_km2 * Common.mu_km;
-                    String qu_nuitee3 = Integer.toString(qu_nuitee2);
-                    String qu_repas3 = Integer.toString(qu_repas2);
-                    String qu_km3 = Integer.toString(qu_km2);
-                    total_nuitee.setText(qu_nuitee3);
-                    total_Repas.setText(qu_repas3);
-                    total_km.setText(qu_km3);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            ResultSet resultat = instruction.executeQuery(
+                    "SELECT id_fiche, qu_nuitee, qu_repas, qu_km FROM fiche WHERE date = '" + date
+                            + "' and fk_matricule = '" + mat_visiteur + "'");
+            while (resultat.next()) {
+                int id_fiche = resultat.getInt("id_fiche");
+                Common.id_fiche = id_fiche;
+                String qu_nuitee = resultat.getString("qu_nuitee");
+                String qu_repas = resultat.getString("qu_repas");
+                String qu_km = resultat.getString("qu_km");
+                txt_qu_nui.setText(qu_nuitee);
+                txt_qu_repas.setText(qu_repas);
+                txt_qu_km.setText(qu_km);
+                int qu_nuitee2 = Integer.parseInt(qu_nuitee);
+                int qu_repas2 = Integer.parseInt(qu_repas);
+                int qu_km2 = Integer.parseInt(qu_km);
+                qu_nuitee2 = qu_nuitee2 * Common.mu_nuit;
+                qu_repas2 = qu_repas2 * Common.mu_repas;
+                qu_km2 = qu_km2 * Common.mu_km;
+                String qu_nuitee3 = Integer.toString(qu_nuitee2);
+                String qu_repas3 = Integer.toString(qu_repas2);
+                String qu_km3 = Integer.toString(qu_km2);
+                total_nuitee.setText(qu_nuitee3);
+                total_Repas.setText(qu_repas3);
+                total_km.setText(qu_km3);
 
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
-            try {
-                Connection con = DriverManager.getConnection(dbURL, username, password);
-                Statement instruction = con.createStatement();
-                ResultSet resultat = instruction.executeQuery(
-                        "SELECT id_autresfrais, af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '"
-                                + Common.id_fiche
-                                + "' ");
-                montant1.setText("");
-                montant2.setText("");
-                montant3.setText("");
-                Date1.setText("");
-                Date2.setText("");
-                Date3.setText("");
-                libelle1.setText("");
-                libelle2.setText("");
-                libelle3.setText("");
-                if (resultat.next()) {
-                    Common.autresfrais1 = resultat.getInt("id_autresfrais");
-                    montant1.setText(resultat.getString("af_montant"));
-                    Date1.setText(resultat.getString("af_date"));
-                    libelle1.setText(resultat.getString("af_libellé"));
-                }
-                if (resultat.next()) {
-                    Common.autresfrais2 = resultat.getInt("id_autresfrais");
-                    montant2.setText(resultat.getString("af_montant"));
-                    Date2.setText(resultat.getString("af_date"));
-                    libelle2.setText(resultat.getString("af_libellé"));
-                }
-                if (resultat.next()) {
-                    Common.autresfrais3 = resultat.getInt("id_autresfrais");
-                    montant3.setText(resultat.getString("af_montant"));
-                    Date3.setText(resultat.getString("af_date"));
-                    libelle3.setText(resultat.getString("af_libellé"));
+        try {
+            Connection con = DriverManager.getConnection(dbURL, username, password);
+            Statement instruction = con.createStatement();
+            ResultSet resultat = instruction.executeQuery(
+                    "SELECT id_autresfrais, af_date, af_libellé, af_montant FROM autresfrais WHERE fk_fiche = '"
+                            + Common.id_fiche
+                            + "' ");
 
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            if (resultat.next()) {
+                Common.autresfrais1 = resultat.getInt("id_autresfrais");
+                montant1.setText(resultat.getString("af_montant"));
+                Date1.setText(resultat.getString("af_date"));
+                libelle1.setText(resultat.getString("af_libellé"));
             }
+            if (resultat.next()) {
+                Common.autresfrais2 = resultat.getInt("id_autresfrais");
+                montant2.setText(resultat.getString("af_montant"));
+                Date2.setText(resultat.getString("af_date"));
+                libelle2.setText(resultat.getString("af_libellé"));
+            }
+            if (resultat.next()) {
+                Common.autresfrais3 = resultat.getInt("id_autresfrais");
+                montant3.setText(resultat.getString("af_montant"));
+                Date3.setText(resultat.getString("af_date"));
+                libelle3.setText(resultat.getString("af_libellé"));
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
     }
@@ -303,6 +310,9 @@ public class ComptableController {
 
     @FXML
     void valider(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("La fiche a été validée");
+            alert.showAndWait();
         String dbURL = "jdbc:mysql://localhost:3306/sampledb";
         String username = "root";
         String password = "9vdkawcA_";

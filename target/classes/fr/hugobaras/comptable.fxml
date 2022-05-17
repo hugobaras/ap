@@ -171,15 +171,15 @@
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <ComboBox fx:id="comb" layoutX="19.0" layoutY="114.0" onAction="#combobox" prefHeight="29.0" prefWidth="168.0" promptText="Selectionner l'agent" style="-fx-background-color: #FFFFF0; -fx-border-color: #e0cda9;" />
-            <Label fx:id="Date1" layoutX="153.0" layoutY="413.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="Date2" layoutX="153.0" layoutY="439.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="Date3" layoutX="153.0" layoutY="466.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="libelle1" layoutX="365.0" layoutY="413.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="libelle2" layoutX="365.0" layoutY="439.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="libelle3" layoutX="365.0" layoutY="466.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="montant1" layoutX="586.0" layoutY="413.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="montant2" layoutX="586.0" layoutY="439.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
-            <Label fx:id="montant3" layoutX="586.0" layoutY="466.0" text="éé" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="Date1" layoutX="153.0" layoutY="413.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="Date2" layoutX="153.0" layoutY="439.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="Date3" layoutX="153.0" layoutY="466.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="libelle1" layoutX="365.0" layoutY="413.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="libelle2" layoutX="365.0" layoutY="439.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="libelle3" layoutX="365.0" layoutY="466.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="montant1" layoutX="586.0" layoutY="413.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="montant2" layoutX="586.0" layoutY="439.0" textAlignment="CENTER" textFill="#e0cda9" />
+            <Label fx:id="montant3" layoutX="586.0" layoutY="466.0" textAlignment="CENTER" textFill="#e0cda9" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

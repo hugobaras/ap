@@ -325,23 +325,56 @@ public class Comptable2Controller {
                 libelle1.setText("");
                 libelle2.setText("");
                 libelle3.setText("");
+                etat1.setText(" ");
+                etat2.setText(" ");
+                etat3.setText(" ");
                 if (resultat.next()) {
                     Common.autresfrais1 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
                     montant1.setText(resultat.getString("af_montant"));
                     date1.setText(resultat.getString("af_date"));
                     libelle1.setText(resultat.getString("af_libellé"));
+                    if (etat == 1) {
+                        etat1.setText("Validé");
+                    }
+                    if (etat == 2) {
+                        etat1.setText("Refusé");
+                    }
+                    if (etat == 0) {
+                        etat1.setText("En attente");
+                    }
                 }
                 if (resultat.next()) {
                     Common.autresfrais2 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
                     montant2.setText(resultat.getString("af_montant"));
                     date2.setText(resultat.getString("af_date"));
                     libelle2.setText(resultat.getString("af_libellé"));
+                    if (etat == 1) {
+                        etat2.setText("Validé");
+                    }
+                    if (etat == 2) {
+                        etat2.setText("Refusé");
+                    }
+                    if (etat == 0) {
+                        etat2.setText("En attente");
+                    }
                 }
                 if (resultat.next()) {
                     Common.autresfrais3 = resultat.getInt("id_autresfrais");
+                    int etat = resultat.getInt("fk_eaf");
                     montant3.setText(resultat.getString("af_montant"));
                     date3.setText(resultat.getString("af_date"));
                     libelle3.setText(resultat.getString("af_libellé"));
+                    if (etat == 1) {
+                        etat3.setText("Validé");
+                    }
+                    if (etat == 2) {
+                        etat3.setText("Refusé");
+                    }
+                    if (etat == 0) {
+                        etat3.setText("En attente");
+                    }
 
                 }
             } catch (Exception ex) {
@@ -358,7 +391,7 @@ public class Comptable2Controller {
 
     @FXML
     void verifier(ActionEvent event) throws IOException {
-        App.setRoot("comptable_consult");
+        App.setRoot("comptable");
     }
 
     @FXML

@@ -305,6 +305,9 @@ public class VisiteurController {
         String username = "root";
         String password = "9vdkawcA_";
         {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Votre fiche a été envoyée");
+            alert.showAndWait();
             if (!Common.nuit.equals(null)) {
                 try {
                     Connection con = DriverManager.getConnection(dbURL, username, password);
